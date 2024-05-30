@@ -1,0 +1,850 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Análisis Exploratorio de los Datos &#8212; Proyecto Final Machine Learning 2024-1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'eda';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Preprocesamiento de la base de datos" href="preprocessing.html" />
+    <link rel="prev" title="Introducción" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Proyecto Final Machine Learning 2024-1 - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Proyecto Final Machine Learning 2024-1 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Análisis Exploratorio de los Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Preprocesamiento de la base de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Modelos base</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/eda.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Análisis Exploratorio de los Datos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido">Contenido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glosario">Glosario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-faltantes">Datos faltantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-respuesta">Variable respuesta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-bivariado">Análisis bivariado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aceptacion-del-prestamo-segun-informacion-personal">Aceptación del préstamo según información personal.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aceptacion-del-prestamo-segun-datos-del-prestamo">Aceptación del préstamo según datos del préstamo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aceptacion-del-prestamo-segun-datos-del-sector">Aceptación del préstamo según datos del sector</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-exploratorio-de-los-datos">
+<h1>Análisis Exploratorio de los Datos<a class="headerlink" href="#analisis-exploratorio-de-los-datos" title="Link to this heading">#</a></h1>
+<p>Como se menciona en la introducción, los datos son tomados de la <em>Home Mortgage Disclosure Act</em>, que permite filtrar los datos según varios sectores de la población. En primer lugar, se filtraron aquellas observaciones donde el resultado del prestamo dependiera completamente del ente que concede el préstamo, dado que lo que se quiere predecir es si la entidad acepta el préstamo o no.</p>
+<section id="contenido">
+<h2>Contenido<a class="headerlink" href="#contenido" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#Glosario"><span class="xref myst">Glosario</span></a></p></li>
+<li><p><a class="reference internal" href="#Datos-faltantes"><span class="xref myst">Datos faltantes</span></a></p></li>
+<li><p><a class="reference internal" href="#Variable-Respuesta"><span class="xref myst">Variable Respuesta</span></a></p></li>
+<li><p><a class="reference internal" href="#An%C3%A1lisis-bivariado"><span class="xref myst">Análisis bivariado</span></a></p></li>
+</ol>
+</section>
+<section id="glosario">
+<h2>Glosario<a class="headerlink" href="#glosario" title="Link to this heading">#</a></h2>
+<p>Las variables más relevantes de la base de datos, y sus posibles valores en caso de ser categórica:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">action_taken</span></code>: El resultado de la petición, esta es la variable que se buscará predecir.</p>
+<ul>
+<li><p>1: Aprovado</p></li>
+<li><p>0: Desaprovado</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">derived_race</span></code>: Raza obtenida según la base de datos original. Contiene la misma información pero se encuentra desempaquetada de modo que no presente una inflación para la base de datos.</p>
+<ul>
+<li><p>American Indian or Alaska Native</p></li>
+<li><p>Asian</p></li>
+<li><p>Black or African American</p></li>
+<li><p>Native Hawaiian or Other Pacific Islander</p></li>
+<li><p>White</p></li>
+<li><p>2 or more minority races</p></li>
+<li><p>Joint</p></li>
+<li><p>Free Form Text Only</p></li>
+<li><p>Race Not Available</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">derived_ethnicity</span></code>: Etnicidad obtenida similarmente a la raza:</p>
+<ul>
+<li><p>Hispanic or Latino</p></li>
+<li><p>Not Hispanic or Latino</p></li>
+<li><p>Joint</p></li>
+<li><p>Ethnicity Not Available</p></li>
+<li><p>Free Form Text Only</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">applicant_sex</span></code>: Sexo del aplicante para el préstamo:</p>
+<ul>
+<li><p>1: Male</p></li>
+<li><p>2: Female</p></li>
+<li><p>3: Information not provided by applicant in mail, internet, or telephone application</p></li>
+<li><p>4: Not applicable</p></li>
+<li><p>6: Applicant selected both male and female</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">applicant_age</span></code>: Intervalo de edad del aplicante:</p>
+<ul>
+<li><p>&lt; 25</p></li>
+<li><p>25-34</p></li>
+<li><p>35-44</p></li>
+<li><p>45-54</p></li>
+<li><p>55-64</p></li>
+<li><p>65-74</p></li>
+<li><p>&gt; 74</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">income</span></code>: Ingresos anuales del aplicante en miles de dólares.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loan_amount</span></code>: Cantidad total del préstamo en dólares.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loan_term</span></code>: Número de meses para culminar el préstamo</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conforming_loan_limit</span></code>: Indica si el préstamo excede el límite impuesto por la <em>GSE</em>:</p>
+<ul>
+<li><p>C: Conforming</p></li>
+<li><p>NC: Nonconforming</p></li>
+<li><p>U: Undetermined</p></li>
+<li><p>NA: Not Applicable</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">property_value</span></code>: El valor de la propiedad usado para asegurar el préstamo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lien_status</span></code>: Indica si el acreedor tendrá prioridad en recibir el pago o se encuentra en una cola:</p>
+<ul>
+<li><p>First lien: El acreedor tiene la prioridad sobre recibir el pago.</p></li>
+<li><p>Subordinate lien: El acreedor se encuentra en fila para recibir el pago.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tract_population</span></code>: Población en el sector.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ffiec_msa_md_median_family_income</span></code>: Mediana de los ingresos familiares en el sector.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tract_owner_occupied_units</span></code>: Número de unidades ocupadas por su respectivo dueño en el sector.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tract_one_to_four_family_homes</span></code>: Número de moradas construidas con menos de 5 familias.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tract_median_age_of_housing_units</span></code>: Mediana de las edades en el sector.</p></li>
+</ul>
+</section>
+<section id="datos-faltantes">
+<h2>Datos faltantes<a class="headerlink" href="#datos-faltantes" title="Link to this heading">#</a></h2>
+<p>Los datos faltantes se pueden observar en el siguiente gráfico:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">read_csv</span><span class="p">,</span> <span class="n">DataFrame</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;hmda_mapped.csv&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;total_units&#39;</span><span class="p">:</span><span class="nb">str</span><span class="p">}</span> <span class="p">)</span>
+<span class="n">missing</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">missing</span> <span class="o">=</span> <span class="n">missing</span><span class="p">[</span><span class="n">missing</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="n">missing</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">missing</span> <span class="o">=</span> <span class="n">missing</span><span class="p">[</span><span class="n">missing</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">missing</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">missing</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Variable&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Porcentaje de datos faltantes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Porcentaje de datos faltantes por variable&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cd491158d13aa3e9351e6e3a45ee4ab444181ccf0782f6906314f85a439deeac.png" src="_images/cd491158d13aa3e9351e6e3a45ee4ab444181ccf0782f6906314f85a439deeac.png" />
+</div>
+</div>
+<p>Como se ve en la gráfica, hay variables con un porcentaje de datos faltantes de más del 20%, por lo que es razonable eliminar estas del conjunto, ya que no se puede extraer mucha información de estas, por otro lado, aquellas con un porcentaje menor al 20% se llenarán con un imputado por la media de la columna. Este proceso se evidenciará mejor en el capítulo de preprocesamiento.</p>
+</section>
+<section id="variable-respuesta">
+<h2>Variable respuesta<a class="headerlink" href="#variable-respuesta" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Response</span>
+<span class="n">action_taken</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;action_taken&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">action_labels</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;No aprobado&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Aprobado&#39;</span><span class="p">}</span>
+<span class="n">action_taken</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">action_taken</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">action_labels</span><span class="p">)</span>
+
+<span class="c1"># Failsafe</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;action_taken&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">action_labels</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">action_taken</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">action_taken</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">action_taken</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Acción&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Conteo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribución de resultados.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b595a523d023b8ff90710bb761d4de059bc0c7252d14431773ba1eedd914ae2a.png" src="_images/b595a523d023b8ff90710bb761d4de059bc0c7252d14431773ba1eedd914ae2a.png" />
+</div>
+</div>
+<p>Podemos observar que hay un desbalance marcado entre las categorías de la variable respuesta, y dada la cantidad de observaciones, se usarán métodos de <em>undersampling</em> donde se reduzcan las muestras irrelevantes para el modelo.</p>
+</section>
+<section id="analisis-bivariado">
+<h2>Análisis bivariado<a class="headerlink" href="#analisis-bivariado" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_categorical</span><span class="p">(</span> <span class="n">col</span> <span class="p">):</span>
+    
+    <span class="n">clean</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+    <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="n">col</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">total_per_category</span> <span class="o">=</span> <span class="n">grouped_data</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">proportion_data</span> <span class="o">=</span> <span class="n">grouped_data</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">total_per_category</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">colormap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">colormap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">proportion_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="n">proportion_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Resultado&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proporción&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Proporción de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1"> según resultado&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">plot_numerical</span><span class="p">(</span> <span class="n">col</span> <span class="p">):</span>
+    <span class="n">clean</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">clean</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;status&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Resultado&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Boxplot de resultado según &#39;</span> <span class="o">+</span> <span class="n">col</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="aceptacion-del-prestamo-segun-informacion-personal">
+<h3>Aceptación del préstamo según información personal.<a class="headerlink" href="#aceptacion-del-prestamo-segun-informacion-personal" title="Link to this heading">#</a></h3>
+<p>A continuación podemos ver la relación entre la variable respuesta y variables relacionadas a la información personal del aplicante.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_categorical</span><span class="p">(</span> <span class="s1">&#39;derived_race&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/69acf5d4fd8bf7408e2d704eebbef02fda4bc4389d15c1fcef787fd266bfee1c.png" src="_images/69acf5d4fd8bf7408e2d704eebbef02fda4bc4389d15c1fcef787fd266bfee1c.png" />
+</div>
+</div>
+<p>Como se podría esperar, la proporción dominante en ambos resultados del préstamo son los denominados blancos, a pesar que hay una mayoría de estos en los créditos aprovados, aún así superan en 50% de la población. Por otro lado, podemos ver como la proporción de negros o afroamericanos supera por el doble en la categoría de desaprobados, por lo que queda como pregunta de investigación determinar si el racismo entra a colación a la hora de la aprobación de créditos o hay otros factores para la población que influyan en este resultado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_categorical</span><span class="p">(</span> <span class="s1">&#39;derived_ethnicity&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e20fbf51050a5838a4f4834df26285b490a558da927e09b58ce5a508ae281f8c.png" src="_images/e20fbf51050a5838a4f4834df26285b490a558da927e09b58ce5a508ae281f8c.png" />
+</div>
+</div>
+<p>De la misma forma que la variable anterior, la proporción dominante se encuentra en “No hispano”, donde se esperaría que la mayor cantidad de gente blanca esté. En ambos resultados superan los 2/3 del total, mientras que se encuentra una mayor proporción en los aprovados. Por otro lado, los autodenominados hispanos comparten una desproporción similar a la que se vió con los afroamericanos en la raza, donde la proporción es aproximadamente el doble que de los aprobados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_categorical</span><span class="p">(</span> <span class="s1">&#39;applicant_sex&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/40af47650e6915dbb15db7838e4f588807e0f0544d644451f0b0261a12a27bed.png" src="_images/40af47650e6915dbb15db7838e4f588807e0f0544d644451f0b0261a12a27bed.png" />
+</div>
+</div>
+<p>Podemos ver que ambos sexos mantienen una proporción muy cercana entre ambos resultados, a pesar que haya una mayor proporción de hombres que de mujeres en general. De todos modos se puede observar una ligera tendencia entre ambos sexos, ya que la proporción de hombres aprovados es ligeramente mayor que de aquellos desaprovados. De forma inversa, las mujeres desaprobadas presentan una ligera mayoría con respecto a las aprovadas. Estas diferencias tan sutiles podrían surgir dado el desbalance entre las clases.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_categorical</span><span class="p">(</span> <span class="s1">&#39;applicant_age&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1c3b2e083dee8d8e7d9b907bdffa95aefcf3ad403c34b36df54e31fe4b717c06.png" src="_images/1c3b2e083dee8d8e7d9b907bdffa95aefcf3ad403c34b36df54e31fe4b717c06.png" />
+</div>
+</div>
+<p>De manera similar a la variable anterior, todas las edades se distribuyen de forma similar para ambos resultados, habiendo una mayoría en los intérvalos entre 35-44 y 45-54. La diferencia notable entre los resultados del intervalo 55-64 se pueden deber dada la inclusión de un sector de la población entre 62 a 64 años, ya que aquellos adultos mayores de 62 años en adelante pueden recibir un tipo especial de préstamo llamado reverse mortgage, variable que se tiene en cuenta en el estudio.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_numerical</span><span class="p">(</span> <span class="s1">&#39;income&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/92192d50573b05c588049482ca66f3814465291069af66bac057c48f967cb63d.png" src="_images/92192d50573b05c588049482ca66f3814465291069af66bac057c48f967cb63d.png" />
+</div>
+</div>
+<p>Podemos ver que a nivel general, la mediana de los aprovados supera en 29k dólares anuales a aquellos que no fueron aprobados. Por otro lado, podemos encontrar valores extremadamenteo atípicos, tales como ingresos negativos en los millones, así como un ingreso de aproximadamente 2 mil millones de dólares, lo que puede ser muy probablemente un dato atípico. Podemos ver entonces que existe cierta diferencia entre ambas variables según su salario anual.</p>
+</section>
+<section id="aceptacion-del-prestamo-segun-datos-del-prestamo">
+<h3>Aceptación del préstamo según datos del préstamo<a class="headerlink" href="#aceptacion-del-prestamo-segun-datos-del-prestamo" title="Link to this heading">#</a></h3>
+<p>A continuación podemos ver la relación entre la aceptación del prestamo y los datos del este tales como el valor, periodo, entre otros.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_numerical</span><span class="p">(</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cf7bf2b971c026b132605e6ac7bab59726d4361966e30ef7763582a39907027d.png" src="_images/cf7bf2b971c026b132605e6ac7bab59726d4361966e30ef7763582a39907027d.png" />
+</div>
+</div>
+<p>Al contrario de lo que se esperaría, la mediana de los aprobados es superior a la de los desaprobados por cerca de 80k dolares en total, lo que nos puede indicar que hay una tendencia a que las deudas más grandes son más propensas a ser aprobadas si se observan los datos por separado. Podemos notar un dato extremadamente atípico de 900 millones desaprobado, caso que se puede dar ya sea por un error de registro de datos, o puede ser el mismo dato atípico visto previamente en el salario anual.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_numerical</span><span class="p">(</span> <span class="s1">&#39;loan_term&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2da24e590e888e19531c7f631b6b2f1fae7af5227784b3c087fd49c1f53029f7.png" src="_images/2da24e590e888e19531c7f631b6b2f1fae7af5227784b3c087fd49c1f53029f7.png" />
+</div>
+</div>
+<p>Es de esperarse que ambas medianas se concentren en los 20 años ya que es un plazo esperado para el pago de una deuda tan grande, de la misma forma ambos resultados distribuyen sus meses de forma similar, estando la mayoría de datos entre los 15 y 35 años.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_categorical</span><span class="p">(</span><span class="s1">&#39;conforming_loan_limit&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/79be10fb7f55cde5b84a99f0e2980d05931555ed5cab40aae4a6f2849de6d944.png" src="_images/79be10fb7f55cde5b84a99f0e2980d05931555ed5cab40aae4a6f2849de6d944.png" />
+</div>
+</div>
+<p>Es notorio que la gran mayoría de préstamos se encuentran por debajo del umbral establecido por la GSE, donde mas del 90% cumplen con el requerimiento. Es sorprendente aún así, que entre los que no cumplen con la restricción, los aprobados superen en un 50% la proporción de los no aprobados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_numerical</span><span class="p">(</span><span class="s1">&#39;property_value&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/eeb169f4c209b9a26ef6cee341f2cba5e8ae933aac496578c8e55d594fccdc20.png" src="_images/eeb169f4c209b9a26ef6cee341f2cba5e8ae933aac496578c8e55d594fccdc20.png" />
+</div>
+</div>
+<p>En este gráfico, podemos observar como la diferencia entre las medianas no es tan grande según el resultado, siendo la mediana de los desaprobados ligeramente superior. Tambien cabe resaltar que en general, los desaprobados tienen datos atípicos más grandes, y nuevamente es posible observar un valor extremadamente alto que puede ser la misma observación antes vista, o, nuevamente, un error a la hora de registrar los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_categorical</span><span class="p">(</span><span class="s1">&#39;lien_status&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a412d5de5493f4a50c66ac5e6322516379806ded81c8e5d2d3ebf723cf21a50c.png" src="_images/a412d5de5493f4a50c66ac5e6322516379806ded81c8e5d2d3ebf723cf21a50c.png" />
+</div>
+</div>
+<p>Dado que un lien subordinado implica quedar en segundo lugar para el retorno del préstamo, es evidente que una mayor proporción de estos se encontrarán en los desaprobados, donde aproximadamente el doble de liens subordinados están sobre los subordinados de un resultado aprobado.</p>
+</section>
+<section id="aceptacion-del-prestamo-segun-datos-del-sector">
+<h3>Aceptación del préstamo según datos del sector<a class="headerlink" href="#aceptacion-del-prestamo-segun-datos-del-sector" title="Link to this heading">#</a></h3>
+<p>La HMDA tiene cuenta varias variables pretenecientes al sector, denomidado como <em>tract</em>. A continuación podemos ver la relación entre estas variables y la acción tomada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_numerical</span><span class="p">(</span><span class="s1">&#39;tract_population&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/04a972843b582cedab823d6c339b0f917a5c719a092d97f305a5f6c580b0efd4.png" src="_images/04a972843b582cedab823d6c339b0f917a5c719a092d97f305a5f6c580b0efd4.png" />
+</div>
+</div>
+<p>A diferencia de muchas variables previas, podemos observar como ambos resultados mantienen distribuciones de los datos idénticas, siendo la única diferencia un dato atípico muy alto en los no aprobados, y una mediana ligeramente superior por parte de los aprobados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_numerical</span><span class="p">(</span><span class="s1">&#39;ffiec_msa_md_median_family_income&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/85a3ebe047fa32b485e4d82373343da7797a244421076a4ae151fe5f167a4ebc.png" src="_images/85a3ebe047fa32b485e4d82373343da7797a244421076a4ae151fe5f167a4ebc.png" />
+</div>
+</div>
+<p>De manera similar, a la variable anterior, ambos resultados comparten una distribución idéntica, manteniendo la misma mediana e incluso un dato atípico, que puede ser resultado de un mal registro de los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_numerical</span><span class="p">(</span><span class="s1">&#39;tract_owner_occupied_units&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fdf989af3fea29db6b9ed9a5142aa524f7b6f1a5f0122fd767add36bd3ac5ce3.png" src="_images/fdf989af3fea29db6b9ed9a5142aa524f7b6f1a5f0122fd767add36bd3ac5ce3.png" />
+</div>
+</div>
+<p>Se puede ver como la mediana de los aprobados es mayor a la de los desaprobados, de todos modos, siguen compartiendo la tendencia de tener resultados similares para ambas categorías.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_numerical</span><span class="p">(</span><span class="s1">&#39;tract_one_to_four_family_homes&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/017d6b25b0afa3a515bbaa8ab7d2e171347bb459a36042a38f78ef85131b3745.png" src="_images/017d6b25b0afa3a515bbaa8ab7d2e171347bb459a36042a38f78ef85131b3745.png" />
+</div>
+</div>
+<p>De la misma forma, a pesar que la mediana de los aprobados sea un poco superior, tenemos una distribución similar para ambos resultados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_numerical</span><span class="p">(</span><span class="s1">&#39;tract_median_age_of_housing_units&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b142db25e04107ea4afccf7f4a1a2f324409639aeca1474299277edb421253c4.png" src="_images/b142db25e04107ea4afccf7f4a1a2f324409639aeca1474299277edb421253c4.png" />
+</div>
+</div>
+<p>En última instancia, encontramos lo mismo para esta variable, todo esto nos puede indicar que las variables relacionadas al sector no son necesarias para los modelos, o bien que hay otras variables sobre el sector que se deberían tener en cuenta para tener un mayor rango de información.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introducción</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="preprocessing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Preprocesamiento de la base de datos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido">Contenido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glosario">Glosario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-faltantes">Datos faltantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-respuesta">Variable respuesta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-bivariado">Análisis bivariado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aceptacion-del-prestamo-segun-informacion-personal">Aceptación del préstamo según información personal.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aceptacion-del-prestamo-segun-datos-del-prestamo">Aceptación del préstamo según datos del préstamo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aceptacion-del-prestamo-segun-datos-del-sector">Aceptación del préstamo según datos del sector</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ricardo Enrique Watts Pérez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

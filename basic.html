@@ -1,0 +1,1444 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modelos base &#8212; Proyecto Final Machine Learning 2024-1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'basic';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Preprocesamiento de la base de datos" href="preprocessing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Proyecto Final Machine Learning 2024-1 - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Proyecto Final Machine Learning 2024-1 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="eda.html">Análisis Exploratorio de los Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Preprocesamiento de la base de datos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelos base</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/basic.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modelos base</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido">Contenido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors">k-Nearest Neighbors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica">Regresión logística</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arbol-de-desicion">Arbol de Desición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-bayesiana">Clasificación Bayesiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-de-modelos">Comparación de Modelos</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modelos-base">
+<h1>Modelos base<a class="headerlink" href="#modelos-base" title="Link to this heading">#</a></h1>
+<section id="contenido">
+<h2>Contenido<a class="headerlink" href="#contenido" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#k-Nearest-Neighbors"><span class="xref myst">k-Nearest Neighbors</span></a></p></li>
+<li><p><a class="reference internal" href="#Regresi%C3%B3n-log%C3%ADstica"><span class="xref myst">Regresión logística</span></a></p></li>
+<li><p><a class="reference internal" href="#Arbol-de-desici%C3%B3n"><span class="xref myst">Arbol de Desición</span></a></p></li>
+<li><p><a class="reference internal" href="#Clasificaci%C3%B3n-Bayesiana"><span class="xref myst">Clasificación Bayesiana</span></a></p></li>
+<li><p><a class="reference internal" href="#Comparaci%C3%B3n-de-Modelos"><span class="xref myst">Comparación de Modelos</span></a></p></li>
+</ol>
+<p>Cabe resaltar que todos los Scripts usados se pueden observar en la carpeta <em>Scripts</em> del repositorio. Los correspondientes a este capítulo son <em>gen_models.py</em> para la generación de los modelos y <em><a class="reference external" href="http://classification.py">classification.py</a></em> para la búsqueda por hiperparámetros generalizada. Cabe resaltar que esta se realizó por medio de un <code class="docutils literal notranslate"><span class="pre">BayesSearchCV</span></code> obtenida del paquete de scikit-learn <em>scikit-optimize</em> o <em>skopt</em>, de modo que es necesario almacenar a su vez los respectivos espacios de búsqueda para la función. Todos los modelos se entrenaron tanto con el dataset base como el balanceado, además, algunos de ellos incluyeron una estandarización y un análisis de componentes principales para mejorar los resultados del modelo, para comparar como estos afectan el puntaje del modelo.</p>
+<p>Por otro lado, el PCA es necesario aplicarlo dentro del pipeline dado que, al usar todos los datos para hallar las componentes principales, puede causar fuga de datos dentro del set a la hora de la búsqueda de parámetros de la misma forma que una estandarización puede causarla. Finalmente, es necesario aplicar el PCA posterior a la estandarización ya que la uniformidad de las varianzas para cada una de las variables respuesta es necesaria para evitar que la diferencia entre estas lleve a pérdida de información. Recordemos que las pendientes de las componentes principales se ajustan a la mayor varianza explicada, por lo que si hay diferencias marcadas entre las varianzas de distintas variables, la componente principal no representará adecuadamente a los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importación de librerías</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">BernoulliNB</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+
+<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">Categorical</span>
+
+<span class="n">proyect</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../..&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">proyect</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proyect</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">Improved.models_testing</span> <span class="kn">import</span> <span class="n">evaluate_model</span><span class="p">,</span> <span class="n">plot_confusion_matrix</span><span class="p">,</span> <span class="n">plot_predictions</span><span class="p">,</span> <span class="n">plot_roc_curve</span><span class="p">,</span> <span class="n">plot_feature_importances</span><span class="p">,</span> <span class="n">get_predictions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Importación de modelos ya entrenados:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pickle</span> <span class="kn">import</span> <span class="n">load</span><span class="p">,</span> <span class="n">UnpicklingError</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../Models/model_list.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">model_filenames</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+<span class="n">models</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">model_name</span> <span class="ow">in</span> <span class="n">model_filenames</span><span class="p">:</span>
+    <span class="n">model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;../../Models&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s1">.pkl&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting to load model from: </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_path</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">model_file</span><span class="p">:</span>
+                <span class="n">model</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">model_file</span><span class="p">)</span>
+                <span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully loaded model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">UnpicklingError</span><span class="p">,</span> <span class="ne">EOFError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempting to load model from: ../../Models\Logistic Base.pkl
+Successfully loaded model: Logistic Base
+Attempting to load model from: ../../Models\Logistic Balanced.pkl
+Successfully loaded model: Logistic Balanced
+Attempting to load model from: ../../Models\Logistic PCA Base.pkl
+Successfully loaded model: Logistic PCA Base
+Attempting to load model from: ../../Models\Logistic PCA Balanced.pkl
+Successfully loaded model: Logistic PCA Balanced
+Attempting to load model from: ../../Models\KNN Base.pkl
+Successfully loaded model: KNN Base
+Attempting to load model from: ../../Models\KNN Balanced.pkl
+Successfully loaded model: KNN Balanced
+Attempting to load model from: ../../Models\KNN PCA Base.pkl
+Successfully loaded model: KNN PCA Base
+Attempting to load model from: ../../Models\KNN PCA Balanced.pkl
+Successfully loaded model: KNN PCA Balanced
+Attempting to load model from: ../../Models\Descicion Tree Base.pkl
+Successfully loaded model: Descicion Tree Base
+Attempting to load model from: ../../Models\Descicion Tree Balanced.pkl
+Successfully loaded model: Descicion Tree Balanced
+Attempting to load model from: ../../Models\Bayesian Base.pkl
+Successfully loaded model: Bayesian Base
+Attempting to load model from: ../../Models\Bayesian Balanced.pkl
+Successfully loaded model: Bayesian Balanced
+Attempting to load model from: ../../Models\Bayesian PCA Base.pkl
+Successfully loaded model: Bayesian PCA Base
+Attempting to load model from: ../../Models\Bayesian PCA Balanced.pkl
+Successfully loaded model: Bayesian PCA Balanced
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;../../Models/data_models.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+<span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">]</span>
+<span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">y_test</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="k-nearest-neighbors">
+<h2>k-Nearest Neighbors<a class="headerlink" href="#k-nearest-neighbors" title="Link to this heading">#</a></h2>
+<p>Dado que el algoritmo <span class="math notranslate nohighlight">\(k\)</span>-NN depende fuertemente de las distancias, es necesario estandarizar cada variable de modo que ninguna variable opaque a otra con un rango extremadamente pequeño, ya que este algoritmo se basa en distancias entre variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;KNN&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pipe&#39;</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">KNeighborsClassifier</span><span class="p">())</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;classifier__n_neighbors&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">400</span> <span class="p">),</span>
+        <span class="s1">&#39;classifier__weights&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span> <span class="p">]</span> <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">knn_pca</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;KNN PCA&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pipe&#39;</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">KNeighborsClassifier</span><span class="p">())</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;classifier__n_neighbors&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">400</span> <span class="p">),</span>
+        <span class="s1">&#39;classifier__weights&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span> <span class="p">]</span> <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En la siguiente tabla podemos observar más de cerca los modelos después de la hiperparametrización.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn_models</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">4</span><span class="p">:</span><span class="mi">8</span> <span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">model_filenames</span><span class="p">[</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">i</span> <span class="p">]</span> <span class="p">}</span> <span class="o">|</span> 
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">|</span> 
+        <span class="p">{</span> <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">knn_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>classifier__n_neighbors</th>
+      <th>classifier__weights</th>
+      <th>AUC</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>KNN Base</td>
+      <td>59</td>
+      <td>uniform</td>
+      <td>0.742910</td>
+      <td>1925.500179</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>KNN Balanced</td>
+      <td>53</td>
+      <td>distance</td>
+      <td>0.753952</td>
+      <td>942.796789</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>KNN PCA Base</td>
+      <td>55</td>
+      <td>uniform</td>
+      <td>0.741183</td>
+      <td>437.227390</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>KNN PCA Balanced</td>
+      <td>37</td>
+      <td>distance</td>
+      <td>0.750647</td>
+      <td>359.124776</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Es notorio que los tres primeros tengan un número de vecinos extremadamente cercano, mientras que el último modelo posee un k mucho más bajo, cosa que se puede atribuir al método de hiperparametrización, ya que al ser aleatoreo, pudo haber recorrido puntos lejanos al que el resto de modelos encontraron como certeros.</p>
+<p>Por otro lado, podemos apreciar que aquellos entrenados con un dataset desbalanceado encontraron mejor aplicar un <span class="math notranslate nohighlight">\(k\)</span>-NN base, mientras que los modelos balanceados encontraron mejor aplicar pesos según la distancia al sistema de votación, asignando un mayor voto mientras más cercana se encuentre la observación del punto.</p>
+<p>En última instancia cabe resaltar la gran diferencia de tiempo, tanto balanceando, como aplicando un PCA, ya que la diferencia entre el primer y último modelo es de aproximadamente 5 veces, en la <a class="reference internal" href="#Comparaci%C3%B3n-de-Modelos"><span class="xref myst">comparación de modelos</span></a> se verá si esta diferencia de tiempo no resulta en una pérdida significativa de desempeño.</p>
+<p>A continuación podemos ver las curvas ROC de los modelos y su mejor umbral para la predicción.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/882e31c1580aa9fcbacb86d20bd65a2651e6cc081292171e0205230abafe76df.png" src="_images/882e31c1580aa9fcbacb86d20bd65a2651e6cc081292171e0205230abafe76df.png" />
+<img alt="_images/ccb9eebddcb292a6472fc4ef8cd776442bf8c73ba17c423de14edb805f18252e.png" src="_images/ccb9eebddcb292a6472fc4ef8cd776442bf8c73ba17c423de14edb805f18252e.png" />
+<img alt="_images/9267cacf5ce33fb690fbe6ccb4211581dc8a24fdc9383f123b90c75a6690bcbf.png" src="_images/9267cacf5ce33fb690fbe6ccb4211581dc8a24fdc9383f123b90c75a6690bcbf.png" />
+<img alt="_images/fc1ea327edb162db3f8c6ea090f4e8c2076e8c54a7fcb957eefab5505df4547e.png" src="_images/fc1ea327edb162db3f8c6ea090f4e8c2076e8c54a7fcb957eefab5505df4547e.png" />
+</div>
+</div>
+<p>Con estos humbrales en cuenta, podemos ver las matrices de confución de cada modelo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c923177090fc4d2a7f8c6db09357e080b2cbebd664cc2fe55f2191f95aecb5dc.png" src="_images/c923177090fc4d2a7f8c6db09357e080b2cbebd664cc2fe55f2191f95aecb5dc.png" />
+<img alt="_images/fa7e5208ffeb77a7752abc2f41a00817f6f0af7b30e7801992647520ad305b9d.png" src="_images/fa7e5208ffeb77a7752abc2f41a00817f6f0af7b30e7801992647520ad305b9d.png" />
+<img alt="_images/49bf15ccd9f74d3a740ed123c5d1c5c57d93bcb30339ab9616a356b3253b1f35.png" src="_images/49bf15ccd9f74d3a740ed123c5d1c5c57d93bcb30339ab9616a356b3253b1f35.png" />
+<img alt="_images/7acf85ce51102782fb187e16572be85dcef118ce28475277ebc60d53a6364be1.png" src="_images/7acf85ce51102782fb187e16572be85dcef118ce28475277ebc60d53a6364be1.png" />
+</div>
+</div>
+<p>Cabe resaltar que los gráficos representan los porcentajes según el verdadero valor de la variable.
+Podemos notar que en general, los modelos tuvieron un desempeño similar, clasificando correctamente la mayoría de variables. Aún así, este modelo tuvo un mejor desempeño clasificando correctamente los valores de 1 que de 0 en todos los casos.</p>
+</section>
+<section id="regresion-logistica">
+<h2>Regresión logística<a class="headerlink" href="#regresion-logistica" title="Link to this heading">#</a></h2>
+<p>A diferencia del modelo anterior, no es necesaria la estandarización de los datos para el entrenamiento del modelo, sin embargo, dado que la estandarización no lleva a pérdida de la información, no hay problema alguno en mantenerlo para continuar con un sentido de uniformidad entre la definición de los modelos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Logistic&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pipe&#39;</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;saga&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;classifier__penalty&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span> <span class="p">]</span> <span class="p">),</span>
+        <span class="s1">&#39;classifier__C&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e+4</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">lr_pca</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Logistic PCA&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pipe&#39;</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;saga&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;classifier__penalty&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span> <span class="p">]</span> <span class="p">),</span>
+        <span class="s1">&#39;classifier__C&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e+4</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación podemos observar los resultados de la hiperparametrización.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr_models</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span> <span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">model_filenames</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="p">}</span> <span class="o">|</span> 
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">|</span> 
+        <span class="p">{</span> <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lr_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>classifier__C</th>
+      <th>classifier__penalty</th>
+      <th>AUC</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Logistic Base</td>
+      <td>0.080112</td>
+      <td>l1</td>
+      <td>0.645170</td>
+      <td>3484.632594</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Logistic Balanced</td>
+      <td>153.112474</td>
+      <td>l1</td>
+      <td>0.654523</td>
+      <td>8085.255974</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Logistic PCA Base</td>
+      <td>9953.739303</td>
+      <td>l2</td>
+      <td>0.605373</td>
+      <td>5159.598865</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Logistic PCA Balanced</td>
+      <td>10000.000000</td>
+      <td>l2</td>
+      <td>0.618090</td>
+      <td>2013.703079</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Dado que la interpretabilidad de los coeficientes para el PCA no es entendible, a continuación se muestra una tabla para los coeficientes de los modelos sin PCA</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coefs</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">lr_models</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="p">])</span>
+<span class="n">coef_df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">coefs</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">columns</span> <span class="p">)</span>
+<span class="n">coef_df</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>loan_amount</th>
+      <th>loan_to_value_ratio</th>
+      <th>loan_term</th>
+      <th>property_value</th>
+      <th>income</th>
+      <th>ffiec_msa_md_median_family_income</th>
+      <th>construction_method_Manufactured home</th>
+      <th>construction_method_Site-built</th>
+      <th>aus_GUS_0</th>
+      <th>aus_GUS_1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.91566</td>
+      <td>-0.374603</td>
+      <td>-0.065844</td>
+      <td>-2.162207</td>
+      <td>-0.003656</td>
+      <td>-0.093739</td>
+      <td>-0.072603</td>
+      <td>0.072603</td>
+      <td>-0.019378</td>
+      <td>0.019378</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.86250</td>
+      <td>-0.353272</td>
+      <td>-0.058847</td>
+      <td>-3.604570</td>
+      <td>-0.003385</td>
+      <td>-0.090697</td>
+      <td>-0.088653</td>
+      <td>0.088653</td>
+      <td>-0.014373</td>
+      <td>0.014373</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>A diferencia del modelo anterior, cuyos scores estaban relativamente cercanos unos de otros, hay una diferencia marcada entre los modelos que hicieron uso de un PCA, reduciendo el score en aproximadamente 4 puntos. También es sorpresa que el modelo que más llevó tiempo fue el modelo balanceado, a diferencia del caso anterior, tanto esto como aplicar un PCA por separado llevó a un incremento del tiempo a comparación con el modelo base.</p>
+<p>Por otro lado, el modelo más rapido hizo uso de estas dós técnicas por separado, pero cabe resaltar que tuvo una aparente pérdida de desempeño. Otra diferencia clara es cómo hay una penalización preferida para según si se aplica un PCA o no, y que la constante de regularización es relativamente mayor cuando se trabaja con un dataset balanceado. Por último, podemos ver que los coeficientes entre los dos modelos sin PCA son relativamente similares, presentando diferencias mínimas entre los coeficientes.</p>
+<p>A continuación se pueden observar las curvas ROC y las matrices de confución del modelo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6099b70e8604b2c2efa91a6fc4dc60f7c07eedc0f87fbb3d2ba7af12f41dccb1.png" src="_images/6099b70e8604b2c2efa91a6fc4dc60f7c07eedc0f87fbb3d2ba7af12f41dccb1.png" />
+<img alt="_images/bdf07ee4c92674a33bbd7c48dadea2767a4ea2af2c10b21ad7de99bd14fbafd5.png" src="_images/bdf07ee4c92674a33bbd7c48dadea2767a4ea2af2c10b21ad7de99bd14fbafd5.png" />
+<img alt="_images/d41c444ed581899b2b98a6b528b55aed8337ca36a3e960f6fdcd0c5eb7eede22.png" src="_images/d41c444ed581899b2b98a6b528b55aed8337ca36a3e960f6fdcd0c5eb7eede22.png" />
+<img alt="_images/3cbc9af260e3988a491242be25b8f39e9a8f3daa3addbe153fd4ed6867aff116.png" src="_images/3cbc9af260e3988a491242be25b8f39e9a8f3daa3addbe153fd4ed6867aff116.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/12fda9cdbf11e2c7f5216775b882065e4169687f7e48787f06776e91ce537802.png" src="_images/12fda9cdbf11e2c7f5216775b882065e4169687f7e48787f06776e91ce537802.png" />
+<img alt="_images/32f22c9727ff8e909b7550b35a23344556568e368f13b9b291dbbfa032e39bfd.png" src="_images/32f22c9727ff8e909b7550b35a23344556568e368f13b9b291dbbfa032e39bfd.png" />
+<img alt="_images/36d4e8b3b4f79bd8337be6e7d9dd857e9f4c680b94e777cd5b4fe7de0cf52c5e.png" src="_images/36d4e8b3b4f79bd8337be6e7d9dd857e9f4c680b94e777cd5b4fe7de0cf52c5e.png" />
+<img alt="_images/9f3ad771d16c81054c316f170940b3a80458764f19591348afbd35ffeee50522.png" src="_images/9f3ad771d16c81054c316f170940b3a80458764f19591348afbd35ffeee50522.png" />
+</div>
+</div>
+<p>En este caso podemos ver por qué los puntajes de los modelos son tan bajos; Todos tienen dificultad clasificando las observaciones 0 adecuadamente, clasificando incorrectamente la mayoría en la última observación. En general, obtuvo un peor desempeño que el modelo anterior, independientemente del preprocesamiento de los datos.</p>
+</section>
+<section id="arbol-de-desicion">
+<h2>Arbol de Desición<a class="headerlink" href="#arbol-de-desicion" title="Link to this heading">#</a></h2>
+<p>A diferencia de los modelos anteriores, los árboles de desición no aumentan significativamente el tiempo de entrenamiento dada la inclusión de profundidades máximas, por lo que el uso de un PCA es irrelevante para el modelo, perdiendo información sin un impacto significativo en el tiempo de entrenamiento. Por esta razón, no es necesario aplicar ni estandarización ni un PCA al modelo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Descicion Tree&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pipe&#39;</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">DecisionTreeClassifier</span><span class="p">())</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;classifier__max_depth&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span> <span class="p">),</span>
+        <span class="s1">&#39;classifier__criterion&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span> <span class="p">]</span> <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_models</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">8</span><span class="p">:</span><span class="mi">10</span> <span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">model_filenames</span><span class="p">[</span> <span class="mi">8</span><span class="o">+</span><span class="n">i</span> <span class="p">]</span> <span class="p">}</span> <span class="o">|</span> 
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">|</span> 
+        <span class="p">{</span> <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dt_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>classifier__criterion</th>
+      <th>classifier__max_depth</th>
+      <th>AUC</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Descicion Tree Base</td>
+      <td>entropy</td>
+      <td>8</td>
+      <td>0.734083</td>
+      <td>79.125488</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Descicion Tree Balanced</td>
+      <td>gini</td>
+      <td>8</td>
+      <td>0.745077</td>
+      <td>76.296319</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Es considerable el hecho que este ha sido el modelo con mejor rendimiento, teniendo un tiempo de CPU extremadamente bajo con respecto al reso y un AUC similar a los mejores antes vistos. Nótese que ambos tienen una profundiad máxima de 8, por lo que es posible obtener mejores resultados aumentando la profundidad en el rango de búsqueda, aunque esto puede llevar al sobre ajuste de los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_feature_importances</span><span class="p">(</span> <span class="n">model</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">X_test</span><span class="o">.</span><span class="n">columns</span> <span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3163afaa2495df83293f8d6a801b62b14823ea25ed32e2bde506fb52b7b1690e.png" src="_images/3163afaa2495df83293f8d6a801b62b14823ea25ed32e2bde506fb52b7b1690e.png" />
+<img alt="_images/627c5197ca469789439ecc55839605fe6911a05c2de31cf4044217cf0c82b2cb.png" src="_images/627c5197ca469789439ecc55839605fe6911a05c2de31cf4044217cf0c82b2cb.png" />
+</div>
+</div>
+<p>Podemos observar que ambos mantuvieron una selección de variables muy similar, teniendo como mas importantes los ingresos y el valor del préstamo, mientras que no tuvo mucha importancia si presentó o no un sistema GUS para el prestamo. En general, no hubo cambios significativos en la selección de variables a tener en cuenta. De la tabla anterior podemos concluir que su selección pudo diferir gracias a que ambos usaron definiciones de entropía diferentes para las variables, o bien directamente por el desbalance de los datos.</p>
+<p>A continuación podemos aprecial las curvas ROC y las matrices de confusión de los modelos resultantes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/17bfedf1ab46c40409fd458935fd3137e49cadb6bb1041813a3f2e65c8d3d174.png" src="_images/17bfedf1ab46c40409fd458935fd3137e49cadb6bb1041813a3f2e65c8d3d174.png" />
+<img alt="_images/7869b4096d7d7e7c41c5ee3f54e5954e29a3508ddccfd508d2b13423eae26a9e.png" src="_images/7869b4096d7d7e7c41c5ee3f54e5954e29a3508ddccfd508d2b13423eae26a9e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b0c28f8b69d3f4741ff444815be759e44255e112c0a1e079035014356b9ed6ee.png" src="_images/b0c28f8b69d3f4741ff444815be759e44255e112c0a1e079035014356b9ed6ee.png" />
+<img alt="_images/27b9374e487d96369fb6997d377f46ac4e7fc16818b26f7ea23c2bd84c4eb0b7.png" src="_images/27b9374e487d96369fb6997d377f46ac4e7fc16818b26f7ea23c2bd84c4eb0b7.png" />
+</div>
+</div>
+<p>Curiosamente, el modelo balanceado tuvo más problemas clasificando la categoría minoritaria correctamente, mientras que fue excelente para clasificar la clase maoyoritaria, con el mayor porcentaje hasta ahora. Por otro lado, el modelo entrenado con los datos desbalanceados obtuvo un balance mayor para la clasificación entre ambas clases.</p>
+</section>
+<section id="clasificacion-bayesiana">
+<h2>Clasificación Bayesiana<a class="headerlink" href="#clasificacion-bayesiana" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bayes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bayesian&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pipe&#39;</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">BernoulliNB</span><span class="p">())</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="kc">None</span>
+<span class="p">}</span>
+
+<span class="n">bayes_pca</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bayesian PCA&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pipe&#39;</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">BernoulliNB</span><span class="p">())</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="kc">None</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nb_models</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">10</span><span class="p">:</span> <span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">model_filenames</span><span class="p">[</span> <span class="mi">10</span><span class="o">+</span><span class="n">i</span> <span class="p">],</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nb_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bayesian Base</td>
+      <td>0.321328</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bayesian Balanced</td>
+      <td>0.077787</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Bayesian PCA Base</td>
+      <td>0.200281</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Bayesian PCA Balanced</td>
+      <td>0.087796</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Dado que la clasificación bayesiana no tiene hiperparámetros, el tiempo de entrenamiento es increíblemente corto, en la sección de comparación de modelos podremos observar mejor el desempeño de estos modelos. A continuación podemos observar las curvas ROC y las matrices de confusión para cada modelo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/681be7642302c2ae3b9f36f17e44324af5a84f4f20cc38895822cfd045e1aaf9.png" src="_images/681be7642302c2ae3b9f36f17e44324af5a84f4f20cc38895822cfd045e1aaf9.png" />
+<img alt="_images/0417fd57de96874578659aabae2aefdadf4e59f2c57597d1ec2f2de818e3e182.png" src="_images/0417fd57de96874578659aabae2aefdadf4e59f2c57597d1ec2f2de818e3e182.png" />
+<img alt="_images/a9bfd82e1b19d79b0c4a0f97890ea03d4e70d08093c1af5bdf37a258c23c4ee9.png" src="_images/a9bfd82e1b19d79b0c4a0f97890ea03d4e70d08093c1af5bdf37a258c23c4ee9.png" />
+<img alt="_images/8d47078f1d85239a4dc38e8b51ebb74800b67b990dde5cd6bd25b894396a8496.png" src="_images/8d47078f1d85239a4dc38e8b51ebb74800b67b990dde5cd6bd25b894396a8496.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7d0770d3d2f56df416a1c006336f15464d07dcb23f2e6dfa5e97136872b984a7.png" src="_images/7d0770d3d2f56df416a1c006336f15464d07dcb23f2e6dfa5e97136872b984a7.png" />
+<img alt="_images/cdc1cbebc4b7ce6ea820f0ed9fc829fc3d32ea01eea3429616079ac216d7d85d.png" src="_images/cdc1cbebc4b7ce6ea820f0ed9fc829fc3d32ea01eea3429616079ac216d7d85d.png" />
+<img alt="_images/e80cab6c7593c2c24189bc586f8888014e4e1b2f16ac98fd6f21f8c9b1eae4a0.png" src="_images/e80cab6c7593c2c24189bc586f8888014e4e1b2f16ac98fd6f21f8c9b1eae4a0.png" />
+<img alt="_images/2a76c8810fefa72a50cfeae51d690c21876e49a653c472949cd2ccc11b644cf8.png" src="_images/2a76c8810fefa72a50cfeae51d690c21876e49a653c472949cd2ccc11b644cf8.png" />
+</div>
+</div>
+<p>Es considerable la pérdida de desempeño que se presenta al aplicar el PCA, ya que incluso pierde capacidad para predecir adecuadamente las observaciones minoritarias, cosa que pasa en el conjuto balanceado, de manera similar al modelo anterior, además de una pérdida de 6 puntos en el AUC. Es bastante evidente que en general, el modelo no es bueno para clasificar correctamente las observaciones.</p>
+</section>
+<section id="comparacion-de-modelos">
+<h2>Comparación de Modelos<a class="headerlink" href="#comparacion-de-modelos" title="Link to this heading">#</a></h2>
+<p>A continuación tenemos los resultados de todos los modelos básicos;</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">model_info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">models</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; Balanced&#39;</span> <span class="k">if</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39; Base&#39;</span><span class="p">)</span>
+    <span class="n">cpu_time</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span>
+    
+    <span class="n">evaluation</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;CPU Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpu_time</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluation</span><span class="p">)</span>
+
+<span class="n">df_results</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="n">df_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+      <th>Name</th>
+      <th>CPU Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.827134</td>
+      <td>0.717210</td>
+      <td>0.768260</td>
+      <td>0.642395</td>
+      <td>Logistic Base</td>
+      <td>3484.632594</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.828319</td>
+      <td>0.703978</td>
+      <td>0.761104</td>
+      <td>0.641237</td>
+      <td>Logistic Balanced</td>
+      <td>8085.255974</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.818110</td>
+      <td>0.579605</td>
+      <td>0.678508</td>
+      <td>0.612687</td>
+      <td>Logistic PCA Base</td>
+      <td>5159.598865</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.801951</td>
+      <td>0.699354</td>
+      <td>0.747147</td>
+      <td>0.597765</td>
+      <td>Logistic PCA Balanced</td>
+      <td>2013.703079</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.860359</td>
+      <td>0.754021</td>
+      <td>0.803688</td>
+      <td>0.739825</td>
+      <td>KNN Base</td>
+      <td>1925.500179</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.859890</td>
+      <td>0.747051</td>
+      <td>0.799509</td>
+      <td>0.735952</td>
+      <td>KNN Balanced</td>
+      <td>942.796789</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.861501</td>
+      <td>0.750122</td>
+      <td>0.801963</td>
+      <td>0.740496</td>
+      <td>KNN PCA Base</td>
+      <td>437.227390</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.864612</td>
+      <td>0.724856</td>
+      <td>0.788590</td>
+      <td>0.736895</td>
+      <td>KNN PCA Balanced</td>
+      <td>359.124776</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.862503</td>
+      <td>0.708400</td>
+      <td>0.777893</td>
+      <td>0.727014</td>
+      <td>Descicion Tree Base</td>
+      <td>79.125488</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.852014</td>
+      <td>0.807895</td>
+      <td>0.829368</td>
+      <td>0.729639</td>
+      <td>Descicion Tree Balanced</td>
+      <td>76.296319</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.813008</td>
+      <td>0.620669</td>
+      <td>0.703937</td>
+      <td>0.595265</td>
+      <td>Bayesian Base</td>
+      <td>0.321328</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.812964</td>
+      <td>0.628483</td>
+      <td>0.708918</td>
+      <td>0.597715</td>
+      <td>Bayesian Balanced</td>
+      <td>0.077787</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>0.796006</td>
+      <td>0.579301</td>
+      <td>0.670581</td>
+      <td>0.543922</td>
+      <td>Bayesian PCA Base</td>
+      <td>0.200281</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>0.787108</td>
+      <td>0.654965</td>
+      <td>0.714982</td>
+      <td>0.541379</td>
+      <td>Bayesian PCA Balanced</td>
+      <td>0.087796</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Por tanto, el mejor modelo entre los base es:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_auc_index</span> <span class="o">=</span> <span class="n">df_results</span><span class="p">[</span><span class="s1">&#39;AUC&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+<span class="n">row_with_max_auc</span> <span class="o">=</span> <span class="n">df_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">max_auc_index</span><span class="p">]</span>
+<span class="n">DataFrame</span><span class="p">(</span><span class="n">row_with_max_auc</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+      <th>Name</th>
+      <th>CPU Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>0.861501</td>
+      <td>0.750122</td>
+      <td>0.801963</td>
+      <td>0.740496</td>
+      <td>KNN PCA Base</td>
+      <td>437.22739</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>No es sorpresa que a nivel general, los modelos que presentaron un mejor desempeño son los <span class="math notranslate nohighlight">\(k\)</span>-NN y los árboles de desición, teniendo tanto un buen precision como recall. Para ser más precisos, la mejor familia de modelos fueron los <span class="math notranslate nohighlight">\(k\)</span>-NN, teniendo mejores puntajes en todo. Por otro lado, los árboles de desición tienen un rendimiento similar y un tiempo de entrenamiento casi 5 veces menor que los <span class="math notranslate nohighlight">\(k\)</span>-NN por lo que también son modelos excelentes para el problema. Por otro lado, la regresión logística fue un modelo extremadamente deficiente para el excesivo tiempo que se tomó, y en el caso de la clasificación bayesiana, no importó el mínimo tiempo de entrenamiento ya que el AUC es extremadamenta pequeño.</p>
+<p>Por último podemos ver cómo clasificó cada modelo las observaciones del set de prueba mediante los siguientes gráficos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_predictions</span><span class="p">(</span> <span class="p">[</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span> <span class="p">],</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_filenames</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/47afcdcb5dc804e648fccb131e1aa70b3ee4d11b0458aefcbd2125ba28408d68.png" src="_images/47afcdcb5dc804e648fccb131e1aa70b3ee4d11b0458aefcbd2125ba28408d68.png" />
+</div>
+</div>
+<p>Por medio de estas dos gráficas, podemos observar más claramente las observaciones anteriores, viendo que los <span class="math notranslate nohighlight">\(k\)</span>-NN tienden a clasificar correctamente cada categoría con una mayor proporción. A su vez, nos permite observar más claramente como puede funcionar uno de los modelos mejorados como lo es un sistema de votación, ya que podemos ver que hay observaciones que la mayoría de clasificadores predicen correctamente, hecho que puede suplir a aquellos modelos que clasifiquen incorrectamente. Aún así no sería perfecto, ya que en ambas gráficas se pueden ver puntos que la mayoría de modelos clasifican incorrectamente.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="preprocessing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Preprocesamiento de la base de datos</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido">Contenido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors">k-Nearest Neighbors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica">Regresión logística</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arbol-de-desicion">Arbol de Desición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-bayesiana">Clasificación Bayesiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-de-modelos">Comparación de Modelos</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ricardo Enrique Watts Pérez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
