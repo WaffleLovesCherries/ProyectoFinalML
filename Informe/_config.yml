@@ -1,0 +1,24 @@
+
+title: Proyecto Final Machine Learning 2024-1
+author: Ricardo Enrique Watts Pérez
+logo: logo.png
+
+execute:
+  timeout: 600
+  execute_notebooks: 'off'
+
+latex:
+  latex_documents:
+    targetname: book.tex
+
+bibtex_bibfiles:
+  - references.bib
+
+repository:
+  url: https://github.com/executablebooks/jupyter-book
+  path_to_book: docs
+  branch: master
+
+html:
+  use_issues_button: false
+  use_repository_button: false
