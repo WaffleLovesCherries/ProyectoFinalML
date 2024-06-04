@@ -1,0 +1,2535 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modelos mejorados &#8212; Proyecto Final Machine Learning 2024-1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ensemble';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Modelos base" href="basic.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Proyecto Final Machine Learning 2024-1 - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Proyecto Final Machine Learning 2024-1 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="eda.html">Análisis Exploratorio de los Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Preprocesamiento de la base de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Modelos base</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelos mejorados</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ensemble.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modelos mejorados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenidos">Contenidos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging">Bagging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors"><span class="math notranslate nohighlight">\(k\)</span> Nearest Neighbors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-bayesiana">Clasificación bayesiana</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-desicion">Árboles de desición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica">Regresión logística</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#voting">Voting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stacking">Stacking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-de-modelos">Comparacion de modelos</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modelos-mejorados">
+<h1>Modelos mejorados<a class="headerlink" href="#modelos-mejorados" title="Link to this heading">#</a></h1>
+<p>En esta sección se mostrarán los resultados del entrenamiento de modelos con técnicas de <em>ensemble</em>, específicamente, <em>bagging</em>, <em>voting</em> y <em>stacking</em>. Aprovechando los resultados de la sección previa, las hiperparametrizaciones correspondientes se realizaron centrándose en los parámetros más óptimos, con una menor cantidad de iteraciones para el <code class="docutils literal notranslate"><span class="pre">BayesSearchCV</span></code>.</p>
+<section id="contenidos">
+<h2>Contenidos<a class="headerlink" href="#contenidos" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#Bagging"><span class="xref myst">Bagging</span></a></p></li>
+<li><p><a class="reference internal" href="#Voting"><span class="xref myst">Voting</span></a></p></li>
+<li><p><a class="reference internal" href="#Stacking"><span class="xref myst">Stacking</span></a></p></li>
+<li><p><a class="reference internal" href="#Comparacion-de-modelos"><span class="xref myst">Comparación de modelos</span></a></p></li>
+</ol>
+<p>Importación de librerías y modelos base para comparación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importación de librerías</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pickle</span> <span class="kn">import</span> <span class="n">load</span><span class="p">,</span> <span class="n">UnpicklingError</span>
+
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">concat</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">BernoulliNB</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">BaggingClassifier</span><span class="p">,</span> <span class="n">VotingClassifier</span><span class="p">,</span> <span class="n">StackingClassifier</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+
+<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">Categorical</span>
+
+<span class="n">proyect</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../..&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">proyect</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proyect</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">Improved.models_testing</span> <span class="kn">import</span> <span class="n">evaluate_model</span><span class="p">,</span> <span class="n">plot_confusion_matrix</span><span class="p">,</span> <span class="n">plot_predictions</span><span class="p">,</span> <span class="n">plot_roc_curve</span><span class="p">,</span> <span class="n">plot_feature_importances</span><span class="p">,</span> <span class="n">get_predictions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../Models/model_list.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">model_filenames</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+<span class="n">models</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">model_name</span> <span class="ow">in</span> <span class="n">model_filenames</span><span class="p">:</span>
+    <span class="n">model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;../../Models&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s1">.pkl&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting to load model from: </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_path</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">model_file</span><span class="p">:</span>
+                <span class="n">model</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">model_file</span><span class="p">)</span>
+                <span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully loaded model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">UnpicklingError</span><span class="p">,</span> <span class="ne">EOFError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempting to load model from: ../../Models\Logistic Base.pkl
+Successfully loaded model: Logistic Base
+Attempting to load model from: ../../Models\Logistic Balanced.pkl
+Successfully loaded model: Logistic Balanced
+Attempting to load model from: ../../Models\Logistic PCA Base.pkl
+Successfully loaded model: Logistic PCA Base
+Attempting to load model from: ../../Models\Logistic PCA Balanced.pkl
+Successfully loaded model: Logistic PCA Balanced
+Attempting to load model from: ../../Models\KNN Base.pkl
+Successfully loaded model: KNN Base
+Attempting to load model from: ../../Models\KNN Balanced.pkl
+Successfully loaded model: KNN Balanced
+Attempting to load model from: ../../Models\KNN PCA Base.pkl
+Successfully loaded model: KNN PCA Base
+Attempting to load model from: ../../Models\KNN PCA Balanced.pkl
+Successfully loaded model: KNN PCA Balanced
+Attempting to load model from: ../../Models\Descicion Tree Base.pkl
+Successfully loaded model: Descicion Tree Base
+Attempting to load model from: ../../Models\Descicion Tree Balanced.pkl
+Successfully loaded model: Descicion Tree Balanced
+Attempting to load model from: ../../Models\Bayesian Base.pkl
+Successfully loaded model: Bayesian Base
+Attempting to load model from: ../../Models\Bayesian Balanced.pkl
+Successfully loaded model: Bayesian Balanced
+Attempting to load model from: ../../Models\Bayesian PCA Base.pkl
+Successfully loaded model: Bayesian PCA Base
+Attempting to load model from: ../../Models\Bayesian PCA Balanced.pkl
+Successfully loaded model: Bayesian PCA Balanced
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;../../Models/data_models.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+<span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">]</span>
+<span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">y_test</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bagging">
+<h2>Bagging<a class="headerlink" href="#bagging" title="Link to this heading">#</a></h2>
+<p><em>Bagging</em> es una técnica de ensamblaje en la que se entrenan varios modelos sobre las muestras bootstrap, y se toman en cuenta todas las predicciones a modo de votación para predecir la clase final.</p>
+<p>Para cada tipo de modelo, se seleccionó la adición de reducción de dimensionalidad por PCA según el impacto que tuviera en el puntaje final del modelo. Dado el buen desempeño de los modelos <span class="math notranslate nohighlight">\(k\)</span>-NN con y sin PCA, se entrenarán estos dos en simultáneo.</p>
+<p>Importación de modelos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../Improved/Bagging/bagging_list.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">bagging_model_filenames</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+<span class="n">bagging_models</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">model_name</span> <span class="ow">in</span> <span class="n">bagging_model_filenames</span><span class="p">:</span>
+    <span class="n">model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;../../Improved/Bagging&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s1">.pkl&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting to load model from: </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_path</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">model_file</span><span class="p">:</span>
+                <span class="n">model</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">model_file</span><span class="p">)</span>
+                <span class="n">bagging_models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully loaded model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">UnpicklingError</span><span class="p">,</span> <span class="ne">EOFError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempting to load model from: ../../Improved/Bagging\Bayes Bagging Balanced.pkl
+Successfully loaded model: Bayes Bagging Balanced
+Attempting to load model from: ../../Improved/Bagging\Bayes Bagging Base.pkl
+Successfully loaded model: Bayes Bagging Base
+Attempting to load model from: ../../Improved/Bagging\Descicion Tree Bagging Balanced.pkl
+Successfully loaded model: Descicion Tree Bagging Balanced
+Attempting to load model from: ../../Improved/Bagging\Descicion Tree Bagging Base.pkl
+Successfully loaded model: Descicion Tree Bagging Base
+Attempting to load model from: ../../Improved/Bagging\KNN Bagging Balanced.pkl
+Successfully loaded model: KNN Bagging Balanced
+Attempting to load model from: ../../Improved/Bagging\KNN Bagging Base.pkl
+Successfully loaded model: KNN Bagging Base
+Attempting to load model from: ../../Improved/Bagging\KNN Bagging PCA Balanced.pkl
+Successfully loaded model: KNN Bagging PCA Balanced
+Attempting to load model from: ../../Improved/Bagging\KNN Bagging PCA Base.pkl
+Successfully loaded model: KNN Bagging PCA Base
+Attempting to load model from: ../../Improved/Bagging\Logistic Bagging Balanced.pkl
+Successfully loaded model: Logistic Bagging Balanced
+Attempting to load model from: ../../Improved/Bagging\Logistic Bagging Base.pkl
+Successfully loaded model: Logistic Bagging Base
+</pre></div>
+</div>
+</div>
+</div>
+<section id="k-nearest-neighbors">
+<h3><span class="math notranslate nohighlight">\(k\)</span> Nearest Neighbors<a class="headerlink" href="#k-nearest-neighbors" title="Link to this heading">#</a></h3>
+<p>Como se menciona antes, para el caso de los modelos <span class="math notranslate nohighlight">\(k\)</span>-NN, se usaron ambos preprocesamientos de los datos dado el desempeño de los modelos en ambos casos. La generación de los modelos es la siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn_bagg</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;KNN Bagging&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pipe&#39;</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;bagging&#39;</span><span class="p">,</span> <span class="n">BaggingClassifier</span><span class="p">(</span> 
+                <span class="n">estimator</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(),</span>
+                <span class="n">max_samples</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+                <span class="n">random_state</span> <span class="o">=</span> <span class="mi">37</span>
+            <span class="p">)</span> <span class="p">)</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;bagging__n_estimators&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span> <span class="p">),</span>
+        <span class="s1">&#39;bagging__estimator__n_neighbors&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">70</span> <span class="p">),</span>
+        <span class="s1">&#39;bagging__estimator__weights&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span> <span class="p">]</span> <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">knn_bagg_pca</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;KNN Bagging PCA&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pipe&#39;</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;bagging&#39;</span><span class="p">,</span> <span class="n">BaggingClassifier</span><span class="p">(</span> 
+                <span class="n">estimator</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(),</span>
+                <span class="n">max_samples</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+                <span class="n">random_state</span> <span class="o">=</span> <span class="mi">37</span>
+            <span class="p">)</span> <span class="p">)</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;bagging__n_estimators&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span> <span class="p">),</span>
+        <span class="s1">&#39;bagging__estimator__n_neighbors&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">70</span> <span class="p">),</span>
+        <span class="s1">&#39;bagging__estimator__weights&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span> <span class="p">]</span> <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Resultados de los modelos <span class="math notranslate nohighlight">\(k\)</span>-NN:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn_models</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">4</span><span class="p">:</span><span class="mi">8</span> <span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">model_filenames</span><span class="p">[</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">i</span> <span class="p">]</span> <span class="p">}</span> <span class="o">|</span> 
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">|</span> 
+        <span class="p">{</span> <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">knn_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>classifier__n_neighbors</th>
+      <th>classifier__weights</th>
+      <th>AUC</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>KNN Base</td>
+      <td>59</td>
+      <td>uniform</td>
+      <td>0.742910</td>
+      <td>1925.500179</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>KNN Balanced</td>
+      <td>53</td>
+      <td>distance</td>
+      <td>0.753952</td>
+      <td>942.796789</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>KNN PCA Base</td>
+      <td>55</td>
+      <td>uniform</td>
+      <td>0.741183</td>
+      <td>437.227390</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>KNN PCA Balanced</td>
+      <td>37</td>
+      <td>distance</td>
+      <td>0.750647</td>
+      <td>359.124776</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Resultados de los modelos <span class="math notranslate nohighlight">\(k\)</span>-NN con bagging:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn_models</span> <span class="o">=</span> <span class="n">bagging_models</span><span class="p">[</span> <span class="mi">4</span><span class="p">:</span><span class="mi">8</span> <span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">model_filenames</span><span class="p">[</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">i</span> <span class="p">]</span> <span class="p">}</span> <span class="o">|</span> 
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">|</span> 
+        <span class="p">{</span> <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">knn_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>bagging__estimator__n_neighbors</th>
+      <th>bagging__estimator__weights</th>
+      <th>bagging__n_estimators</th>
+      <th>AUC</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>KNN Base</td>
+      <td>12</td>
+      <td>distance</td>
+      <td>15</td>
+      <td>0.753896</td>
+      <td>445.296643</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>KNN Balanced</td>
+      <td>20</td>
+      <td>distance</td>
+      <td>14</td>
+      <td>0.745889</td>
+      <td>1449.879107</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>KNN PCA Base</td>
+      <td>43</td>
+      <td>distance</td>
+      <td>14</td>
+      <td>0.745851</td>
+      <td>195.611159</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>KNN PCA Balanced</td>
+      <td>45</td>
+      <td>distance</td>
+      <td>24</td>
+      <td>0.743430</td>
+      <td>786.976059</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>A diferencia del caso anterior, no hay ima relación tan estricta entre la dimensionalidad de los datos y el tiempo en CPU. Por otro lado, se puede ver que se tuvo un desempeño similar a los modelos sin bagging aplicado, con la particularidad que todos optaron por aplicar pesos a la votación interna de acuerdo a la distancia. Por otro lado, en comparación con los modelos base, los modelos con bagging, usaron menos vecinos para la predicción. Los resultados de los modelos se ven a continuación:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">bagging_models</span><span class="p">[</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/58971edb58f2e1603f4e8d78ed1a747696b858732449886ca6102e5bbcb84bd8.png" src="_images/58971edb58f2e1603f4e8d78ed1a747696b858732449886ca6102e5bbcb84bd8.png" />
+<img alt="_images/93a11fa9eea74037e031a8be44924cf02ac258f58492f866aedf30ea9e787667.png" src="_images/93a11fa9eea74037e031a8be44924cf02ac258f58492f866aedf30ea9e787667.png" />
+<img alt="_images/ad9f2c3943fbb02eab601b126e03aa6c1184c3529f192db64d83e056b292a0b5.png" src="_images/ad9f2c3943fbb02eab601b126e03aa6c1184c3529f192db64d83e056b292a0b5.png" />
+<img alt="_images/1ea2edfe16b8a72e3c2ab57b28c47f5bd3a210817b23dfaa13791a681982f9e7.png" src="_images/1ea2edfe16b8a72e3c2ab57b28c47f5bd3a210817b23dfaa13791a681982f9e7.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">bagging_models</span><span class="p">[</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5efcb5050165a16f4ba750f3b4599b2a79f5d1099fde2c315d74d171743c8431.png" src="_images/5efcb5050165a16f4ba750f3b4599b2a79f5d1099fde2c315d74d171743c8431.png" />
+<img alt="_images/ee8b8611032d1e871e96ada748856d3398025601c0d97520049c6ee9addfb27f.png" src="_images/ee8b8611032d1e871e96ada748856d3398025601c0d97520049c6ee9addfb27f.png" />
+<img alt="_images/d923d2ef5ff610f560f10e4e5ddddd64674950be0ec1617da1934f022e1cdc64.png" src="_images/d923d2ef5ff610f560f10e4e5ddddd64674950be0ec1617da1934f022e1cdc64.png" />
+<img alt="_images/cfe0d52ae8b6a832a7540eed663cc44e605123224eb6cbf3d2b4c3fdb2d13185.png" src="_images/cfe0d52ae8b6a832a7540eed663cc44e605123224eb6cbf3d2b4c3fdb2d13185.png" />
+</div>
+</div>
+<p>Como era de esperarse por los resultados anteriores, la aplicación de bagging en este modelo no influyó de manera significativa en el desempeño de este. Finalmente podemos ver una tabla con los resultados de la evaluación de los modelos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">model_info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">]):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; Balanced&#39;</span> <span class="k">if</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39; Base&#39;</span><span class="p">)</span>
+    <span class="n">cpu_time</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span>
+    
+    <span class="n">evaluation</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;CPU Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpu_time</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluation</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">model_info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bagging_models</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">]):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; Balanced&#39;</span> <span class="k">if</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39; Base&#39;</span><span class="p">)</span>
+    <span class="n">cpu_time</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span>
+    
+    <span class="n">evaluation</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;CPU Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpu_time</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluation</span><span class="p">)</span>
+
+<span class="n">df_results</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="n">df_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+      <th>Name</th>
+      <th>CPU Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.860359</td>
+      <td>0.754021</td>
+      <td>0.803688</td>
+      <td>0.739825</td>
+      <td>KNN Base</td>
+      <td>1925.500179</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.859890</td>
+      <td>0.747051</td>
+      <td>0.799509</td>
+      <td>0.735952</td>
+      <td>KNN Balanced</td>
+      <td>942.796789</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.861501</td>
+      <td>0.750122</td>
+      <td>0.801963</td>
+      <td>0.740496</td>
+      <td>KNN PCA Base</td>
+      <td>437.227390</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.864612</td>
+      <td>0.724856</td>
+      <td>0.788590</td>
+      <td>0.736895</td>
+      <td>KNN PCA Balanced</td>
+      <td>359.124776</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.861577</td>
+      <td>0.742612</td>
+      <td>0.797683</td>
+      <td>0.740347</td>
+      <td>KNN Bagging Base</td>
+      <td>445.296643</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.862165</td>
+      <td>0.754528</td>
+      <td>0.804763</td>
+      <td>0.743366</td>
+      <td>KNN Bagging Balanced</td>
+      <td>1449.879107</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.859736</td>
+      <td>0.731506</td>
+      <td>0.790454</td>
+      <td>0.734961</td>
+      <td>KNN Bagging PCA Base</td>
+      <td>195.611159</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.863109</td>
+      <td>0.739489</td>
+      <td>0.796531</td>
+      <td>0.742572</td>
+      <td>KNN Bagging PCA Balanced</td>
+      <td>786.976059</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>De la tabla podemos ver que el puntaje máximo entre los modelos <span class="math notranslate nohighlight">\(k\)</span>-NN aumentó ligeramente con el último de los modelos presentados, con un score AUC 0.002 puntos mayor que el mejor modelo base. Aún así, estas mejoría se obtuvo a costa de un tiempo de entrenamiento 2 veces mayor que el anterior.</p>
+</section>
+<section id="clasificacion-bayesiana">
+<h3>Clasificación bayesiana<a class="headerlink" href="#clasificacion-bayesiana" title="Link to this heading">#</a></h3>
+<p>Es de esperarse que este sea el modelo con peor desempeño entre los nuevos modelos de ensamblaje, dado el desempeño previo, aún así, se espera mejorar un poco ese puntaje por medio del bagging. La declaración del modelo es la siguiente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bayes_bagg</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bayes Bagging&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pipe&#39;</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;bagging&#39;</span><span class="p">,</span> <span class="n">BaggingClassifier</span><span class="p">(</span> 
+                <span class="n">estimator</span> <span class="o">=</span> <span class="n">BernoulliNB</span><span class="p">(),</span>
+                <span class="n">random_state</span> <span class="o">=</span> <span class="mi">37</span>
+            <span class="p">)</span> <span class="p">)</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;bagging__n_estimators&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span> <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación podemos comparar los resultados entre los modelos <em>BernoulliNB</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nb_models</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">10</span><span class="p">:</span> <span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">model_filenames</span><span class="p">[</span> <span class="mi">10</span><span class="o">+</span><span class="n">i</span> <span class="p">],</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nb_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bayesian Base</td>
+      <td>0.321328</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bayesian Balanced</td>
+      <td>0.077787</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Bayesian PCA Base</td>
+      <td>0.200281</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Bayesian PCA Balanced</td>
+      <td>0.087796</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bayes_models</span> <span class="o">=</span> <span class="n">bagging_models</span><span class="p">[</span> <span class="p">:</span><span class="mi">2</span> <span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">bagging_model_filenames</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="p">}</span> <span class="o">|</span> 
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">|</span> 
+        <span class="p">{</span> <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bayes_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>bagging__n_estimators</th>
+      <th>AUC</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bayes Bagging Balanced</td>
+      <td>22</td>
+      <td>0.613883</td>
+      <td>11.425794</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bayes Bagging Base</td>
+      <td>24</td>
+      <td>0.600479</td>
+      <td>27.536990</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Es evidente que hay diferencia significativa en el tiempo de entrenamiento, dada la inclusión de búsqueda por hiperparámetros, por lo que es esperable que el puntaje tambien incremente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">bagging_models</span><span class="p">[</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b745a8f33a9b8dc489461e90c96ad915ccfc9dcbf2ff316ce2f9b0fc20e8491a.png" src="_images/b745a8f33a9b8dc489461e90c96ad915ccfc9dcbf2ff316ce2f9b0fc20e8491a.png" />
+<img alt="_images/926f7d94c9fc165cc5ef1d99cb52c5c012d22af750a47a61b7051da989d175bf.png" src="_images/926f7d94c9fc165cc5ef1d99cb52c5c012d22af750a47a61b7051da989d175bf.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">bagging_models</span><span class="p">[</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/90fe05b7647588f8e4f57430d0535e89df9f6aab794d2020447a28005f7f82c3.png" src="_images/90fe05b7647588f8e4f57430d0535e89df9f6aab794d2020447a28005f7f82c3.png" />
+<img alt="_images/34d0272ab7a43737ea6629f3a7b7a888d5d2bfcfa45ab53017ac0bafa125b0a8.png" src="_images/34d0272ab7a43737ea6629f3a7b7a888d5d2bfcfa45ab53017ac0bafa125b0a8.png" />
+</div>
+</div>
+<p>A diferencia del modelo anterior, se puede observar que la clasifición no es tan precisa para diferenciar entre ambos grupos, de forma similar a su versión antes del ensamblaje.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">model_info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="mi">10</span><span class="p">:]):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; Balanced&#39;</span> <span class="k">if</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39; Base&#39;</span><span class="p">)</span>
+    <span class="n">cpu_time</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span>
+    
+    <span class="n">evaluation</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;CPU Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpu_time</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluation</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">model_info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bagging_models</span><span class="p">[:</span><span class="mi">2</span><span class="p">]):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; Balanced&#39;</span> <span class="k">if</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39; Base&#39;</span><span class="p">)</span>
+    <span class="n">cpu_time</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span>
+    
+    <span class="n">evaluation</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;CPU Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpu_time</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluation</span><span class="p">)</span>
+
+<span class="n">df_results</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="n">df_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+      <th>Name</th>
+      <th>CPU Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.813008</td>
+      <td>0.620669</td>
+      <td>0.703937</td>
+      <td>0.595265</td>
+      <td>Bayesian Base</td>
+      <td>0.321328</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.812964</td>
+      <td>0.628483</td>
+      <td>0.708918</td>
+      <td>0.597715</td>
+      <td>Bayesian Balanced</td>
+      <td>0.077787</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.796006</td>
+      <td>0.579301</td>
+      <td>0.670581</td>
+      <td>0.543922</td>
+      <td>Bayesian PCA Base</td>
+      <td>0.200281</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.787108</td>
+      <td>0.654965</td>
+      <td>0.714982</td>
+      <td>0.541379</td>
+      <td>Bayesian PCA Balanced</td>
+      <td>0.087796</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.812964</td>
+      <td>0.628483</td>
+      <td>0.708918</td>
+      <td>0.598366</td>
+      <td>Bayes Bagging Base</td>
+      <td>11.425794</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.812324</td>
+      <td>0.622559</td>
+      <td>0.704893</td>
+      <td>0.594927</td>
+      <td>Bayes Bagging Balanced</td>
+      <td>27.536990</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Es evidente que en este caso, aplicar un modelo de bagging no fue eficiente, puesto que no hubo mejoría en el score, mientras que el tiempo de entrenamiento aumentó significativamente.</p>
+</section>
+<section id="arboles-de-desicion">
+<h3>Árboles de desición<a class="headerlink" href="#arboles-de-desicion" title="Link to this heading">#</a></h3>
+<p>Al aplicar bagging a un modelo de árbol de desición se obtiene el modelo conocido como <em>Random Forest</em>, en este caso, se optó pur la definición “manual” para mantener un sentido de homogeneidad entre los modelos, pero es el equivalente a entrenar un modelo <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier</span></code> con los espacios de búsqueda mencionados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_bagg</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Descicion Tree Bagging&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pipe&#39;</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;bagging&#39;</span><span class="p">,</span> <span class="n">BaggingClassifier</span><span class="p">(</span> 
+                <span class="n">estimator</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(),</span>
+                <span class="n">random_state</span> <span class="o">=</span> <span class="mi">37</span>
+            <span class="p">)</span> <span class="p">)</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;bagging__n_estimators&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span> <span class="p">),</span>
+        <span class="s1">&#39;bagging__estimator__max_depth&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span> <span class="p">),</span>
+        <span class="s1">&#39;bagging__estimator__criterion&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span> <span class="p">]</span> <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación se muestran los hiperparámentros de los modelos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_models</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">8</span><span class="p">:</span><span class="mi">10</span> <span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">model_filenames</span><span class="p">[</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">i</span> <span class="p">]</span> <span class="p">}</span> <span class="o">|</span> 
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">|</span> 
+        <span class="p">{</span> <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dt_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>classifier__criterion</th>
+      <th>classifier__max_depth</th>
+      <th>AUC</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Descicion Tree Base</td>
+      <td>entropy</td>
+      <td>8</td>
+      <td>0.734083</td>
+      <td>79.125488</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Descicion Tree Balanced</td>
+      <td>gini</td>
+      <td>8</td>
+      <td>0.745077</td>
+      <td>76.296319</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn_models</span> <span class="o">=</span> <span class="n">bagging_models</span><span class="p">[</span> <span class="mi">2</span><span class="p">:</span><span class="mi">4</span> <span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">bagging_model_filenames</span><span class="p">[</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">i</span> <span class="p">]</span> <span class="p">}</span> <span class="o">|</span> 
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">|</span> 
+        <span class="p">{</span> <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">knn_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>bagging__estimator__criterion</th>
+      <th>bagging__estimator__max_depth</th>
+      <th>bagging__n_estimators</th>
+      <th>AUC</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Descicion Tree Bagging Balanced</td>
+      <td>gini</td>
+      <td>8</td>
+      <td>50</td>
+      <td>0.713903</td>
+      <td>1990.62283</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Descicion Tree Bagging Base</td>
+      <td>entropy</td>
+      <td>8</td>
+      <td>44</td>
+      <td>0.689414</td>
+      <td>3642.02113</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Se puede ver que ambos modelos continuaron con la tendencia de usar el máximo de profundidad posible, aunque hubo un descenso considerado del puntaje. A continuación se pueden ver las curvas ROC y las matrices de confusión resultantes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">bagging_models</span><span class="p">[</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9f1e0b220b7854812af8c1b96e3f98295b1bbcdc0f9696a5ed4021fed12ccc09.png" src="_images/9f1e0b220b7854812af8c1b96e3f98295b1bbcdc0f9696a5ed4021fed12ccc09.png" />
+<img alt="_images/4865f645e177f34c3e04325fae124d0962ccadb905b29d3600a076b8a1c3acc0.png" src="_images/4865f645e177f34c3e04325fae124d0962ccadb905b29d3600a076b8a1c3acc0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">bagging_models</span><span class="p">[</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a2e3153e02e065de7ee2d4a112bdacf88fd80a978dfd88c9af036527decf31eb.png" src="_images/a2e3153e02e065de7ee2d4a112bdacf88fd80a978dfd88c9af036527decf31eb.png" />
+<img alt="_images/2bfec3078bd3988d3ad883ee4165c2fcadac95910bc38639637711e2f0fb046c.png" src="_images/2bfec3078bd3988d3ad883ee4165c2fcadac95910bc38639637711e2f0fb046c.png" />
+</div>
+</div>
+<p>Siguiendo la tendencia, se puede ver que los modelos son mejores para clasificar las muestras con un valor de aceptado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">model_info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">10</span><span class="p">]):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; Balanced&#39;</span> <span class="k">if</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39; Base&#39;</span><span class="p">)</span>
+    <span class="n">cpu_time</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span>
+    
+    <span class="n">evaluation</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;CPU Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpu_time</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluation</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">model_info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bagging_models</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; Balanced&#39;</span> <span class="k">if</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39; Base&#39;</span><span class="p">)</span>
+    <span class="n">cpu_time</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span>
+    
+    <span class="n">evaluation</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;CPU Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpu_time</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluation</span><span class="p">)</span>
+
+<span class="n">df_results</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="n">df_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+      <th>Name</th>
+      <th>CPU Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.862503</td>
+      <td>0.708400</td>
+      <td>0.777893</td>
+      <td>0.727014</td>
+      <td>Descicion Tree Base</td>
+      <td>79.125488</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.852014</td>
+      <td>0.807895</td>
+      <td>0.829368</td>
+      <td>0.729639</td>
+      <td>Descicion Tree Balanced</td>
+      <td>76.296319</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.846190</td>
+      <td>0.729835</td>
+      <td>0.783717</td>
+      <td>0.694021</td>
+      <td>Descicion Tree Bagging Base</td>
+      <td>1990.622830</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.839988</td>
+      <td>0.710493</td>
+      <td>0.769833</td>
+      <td>0.679799</td>
+      <td>Descicion Tree Bagging Balanced</td>
+      <td>3642.021130</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos ver que la técnica de ensamblaje no resultó en una mejoría del puntaje del modelo, posiblemente por la partición de las muestras bootstrap generadas en el modelo.</p>
+</section>
+<section id="regresion-logistica">
+<h3>Regresión logística<a class="headerlink" href="#regresion-logistica" title="Link to this heading">#</a></h3>
+<p>De forma similar al caso con el modelo de clasificación bayesiana, es posible que este modelo no aumente el desempeño partiendo del score del modelo orignal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr_bagg</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Logistic Bagging&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pipe&#39;</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;bagging&#39;</span><span class="p">,</span> <span class="n">BaggingClassifier</span><span class="p">(</span> 
+                <span class="n">estimator</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;saga&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span> <span class="p">),</span>
+                <span class="n">max_samples</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+                <span class="n">random_state</span> <span class="o">=</span> <span class="mi">37</span>
+            <span class="p">)</span> <span class="p">)</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;bagging__n_estimators&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span> <span class="p">),</span>
+        <span class="s1">&#39;bagging__estimator__C&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr_models</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span> <span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">model_filenames</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="p">}</span> <span class="o">|</span> 
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">|</span> 
+        <span class="p">{</span> <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lr_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>classifier__C</th>
+      <th>classifier__penalty</th>
+      <th>AUC</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Logistic Base</td>
+      <td>0.080112</td>
+      <td>l1</td>
+      <td>0.645170</td>
+      <td>3484.632594</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Logistic Balanced</td>
+      <td>153.112474</td>
+      <td>l1</td>
+      <td>0.654523</td>
+      <td>8085.255974</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Logistic PCA Base</td>
+      <td>9953.739303</td>
+      <td>l2</td>
+      <td>0.605373</td>
+      <td>5159.598865</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Logistic PCA Balanced</td>
+      <td>10000.000000</td>
+      <td>l2</td>
+      <td>0.618090</td>
+      <td>2013.703079</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn_models</span> <span class="o">=</span> <span class="n">bagging_models</span><span class="p">[</span> <span class="mi">8</span><span class="p">:</span> <span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">bagging_model_filenames</span><span class="p">[</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">i</span> <span class="p">]</span> <span class="p">}</span> <span class="o">|</span> 
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">|</span> 
+        <span class="p">{</span> <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">knn_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>bagging__estimator__C</th>
+      <th>bagging__n_estimators</th>
+      <th>AUC</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Logistic Bagging Balanced</td>
+      <td>1011.703773</td>
+      <td>20</td>
+      <td>0.653697</td>
+      <td>149858.243322</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Logistic Bagging Base</td>
+      <td>1328.323088</td>
+      <td>11</td>
+      <td>0.644272</td>
+      <td>133984.122216</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos ver que la diferencia de tiempo es significativamente grandem a oesar de no haber un aumento en el puntaje dentro del entrenamiento, por lo que es facil asumir que este no es un modelo decente para el problema.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">bagging_models</span><span class="p">[</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f71bbac3891b4e5d0cbc5b9e5f100f2b02836d0b301386d1ec1de4168bbd2085.png" src="_images/f71bbac3891b4e5d0cbc5b9e5f100f2b02836d0b301386d1ec1de4168bbd2085.png" />
+<img alt="_images/693563f6a5746c9d94c6de783efb4e210edc2c34c8136bb0c0150a43d38ad655.png" src="_images/693563f6a5746c9d94c6de783efb4e210edc2c34c8136bb0c0150a43d38ad655.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">bagging_models</span><span class="p">[</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/00820166c9e881558a3ae6dbd50a4529cfefebb70ac999d7780599b52264e5eb.png" src="_images/00820166c9e881558a3ae6dbd50a4529cfefebb70ac999d7780599b52264e5eb.png" />
+<img alt="_images/e68bd2ff7759e87fe17ef58eecabb446d5ce90969152966476921b2fd1068ee2.png" src="_images/e68bd2ff7759e87fe17ef58eecabb446d5ce90969152966476921b2fd1068ee2.png" />
+</div>
+</div>
+<p>A pesar de las deficiencias, podemos observar que tiene un desempeño similar clasificando las muestras verdaderas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">model_info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">models</span><span class="p">[:</span><span class="mi">4</span><span class="p">]):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; Balanced&#39;</span> <span class="k">if</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39; Base&#39;</span><span class="p">)</span>
+    <span class="n">cpu_time</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span>
+    
+    <span class="n">evaluation</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;CPU Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpu_time</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluation</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">model_info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bagging_models</span><span class="p">[</span><span class="mi">8</span><span class="p">:]):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; Balanced&#39;</span> <span class="k">if</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39; Base&#39;</span><span class="p">)</span>
+    <span class="n">cpu_time</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span>
+    
+    <span class="n">evaluation</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;CPU Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpu_time</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluation</span><span class="p">)</span>
+
+<span class="n">df_results</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="n">df_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+      <th>Name</th>
+      <th>CPU Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.827134</td>
+      <td>0.717210</td>
+      <td>0.768260</td>
+      <td>0.642395</td>
+      <td>Logistic Base</td>
+      <td>3484.632594</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.828319</td>
+      <td>0.703978</td>
+      <td>0.761104</td>
+      <td>0.641237</td>
+      <td>Logistic Balanced</td>
+      <td>8085.255974</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.818110</td>
+      <td>0.579605</td>
+      <td>0.678508</td>
+      <td>0.612687</td>
+      <td>Logistic PCA Base</td>
+      <td>5159.598865</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.801951</td>
+      <td>0.699354</td>
+      <td>0.747147</td>
+      <td>0.597765</td>
+      <td>Logistic PCA Balanced</td>
+      <td>2013.703079</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.828780</td>
+      <td>0.651285</td>
+      <td>0.729390</td>
+      <td>0.636148</td>
+      <td>Logistic Bagging Base</td>
+      <td>149858.243322</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.828298</td>
+      <td>0.702898</td>
+      <td>0.760463</td>
+      <td>0.643272</td>
+      <td>Logistic Bagging Balanced</td>
+      <td>133984.122216</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Finalmente, podemos comparar todos los modelos entre sí. Como se mencionaba antes, el tiempo de entrenamiento es casi 50 veces mayor al promedio, tomando aproximadamente 2 dias cada uno, mientras que no se encuentra una mejora significativa en el puntaje. Aún así, supera al mejor modelo base por 0.01 puntos.</p>
+</section>
+</section>
+<section id="voting">
+<h2>Voting<a class="headerlink" href="#voting" title="Link to this heading">#</a></h2>
+<p><em>Voting</em> es un método de ensamblaje que entrena varios modelos en simultáneo y toma como resultado la categoría más predicha entre los modelos internos. De forma similar al ensamblaje anterior, se escogieron los modelos con los preprocesamientos que llevaron a un mejor desempeño, excluyendo por completo los modelos de clasificación bayesiana, puesto que como se ve anteriormente, no tiene un buen desempeño, coasa que puede generar información ruidosa para el entrenamiento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../Improved/Voting/voting_list.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">voting_model_filenames</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+<span class="n">voting_models</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">model_name</span> <span class="ow">in</span> <span class="n">voting_model_filenames</span><span class="p">:</span>
+    <span class="n">model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;../../Improved/Voting&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s1">.pkl&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting to load model from: </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_path</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">model_file</span><span class="p">:</span>
+                <span class="n">model</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">model_file</span><span class="p">)</span>
+                <span class="n">voting_models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully loaded model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">UnpicklingError</span><span class="p">,</span> <span class="ne">EOFError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempting to load model from: ../../Improved/Voting\Voting Base.pkl
+Successfully loaded model: Voting Base
+Attempting to load model from: ../../Improved/Voting\Voting Balanced.pkl
+Successfully loaded model: Voting Balanced
+</pre></div>
+</div>
+</div>
+</div>
+<p>La declaración de los modelos es la siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">est</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span> <span class="s1">&#39;knn&#39;</span><span class="p">,</span> 
+        <span class="n">Pipeline</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">(</span> <span class="s1">&#39;scaling&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()</span> <span class="p">),</span>
+                <span class="p">(</span> <span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)</span> <span class="p">),</span>
+                <span class="p">(</span> <span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span> <span class="p">)</span>
+            <span class="p">]</span>
+        <span class="p">)</span> 
+    <span class="p">),</span>
+    <span class="p">(</span> <span class="s1">&#39;dt&#39;</span><span class="p">,</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">8</span> <span class="p">)</span> <span class="p">),</span>
+    <span class="p">(</span> <span class="s1">&#39;lr&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;saga&#39;</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span> <span class="p">)</span> <span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">vt</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Voting&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">VotingClassifier</span><span class="p">(</span> <span class="n">estimators</span><span class="o">=</span><span class="n">est</span><span class="p">,</span> <span class="n">voting</span><span class="o">=</span><span class="s1">&#39;soft&#39;</span> <span class="p">),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;knn__classifier__n_neighbors&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">65</span> <span class="p">),</span>
+        <span class="s1">&#39;knn__classifier__weights&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span> <span class="p">]</span> <span class="p">),</span>
+        <span class="s1">&#39;dt__criterion&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span> <span class="p">]</span> <span class="p">),</span>
+        <span class="s1">&#39;lr__C&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span> <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso, se usó una votación suave para habilitar el cálculo de probabilidades, en vez de una votación exacta de 0’s y 1’s, de esta manera se cuenta con información más exacta para la predicción. Los resultados de la hiperparametrización se ven a continuación:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">voting_model_filenames</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="p">}</span> <span class="o">|</span> 
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">|</span> 
+        <span class="p">{</span> <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">voting_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>dt__criterion</th>
+      <th>knn__classifier__n_neighbors</th>
+      <th>knn__classifier__weights</th>
+      <th>lr__C</th>
+      <th>AUC</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Voting Base</td>
+      <td>gini</td>
+      <td>35</td>
+      <td>distance</td>
+      <td>4.688043</td>
+      <td>0.750663</td>
+      <td>2168.541874</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Voting Balanced</td>
+      <td>gini</td>
+      <td>35</td>
+      <td>distance</td>
+      <td>0.007023</td>
+      <td>0.771549</td>
+      <td>1964.780990</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos ver que ambos modelos tuvieron un buen desempeño en comparación a los previos. Por otro lado, es notorio que mantuvieron parámetros similares, a excepción del parámetro de regulación <span class="math notranslate nohighlight">\(C\)</span> para la regresión logística.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">voting_models</span><span class="p">[</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/87424194f3bab712fea9bd8c4f36cf90c733fa708e31aec5b51bcd4a72db8afc.png" src="_images/87424194f3bab712fea9bd8c4f36cf90c733fa708e31aec5b51bcd4a72db8afc.png" />
+<img alt="_images/ff7ad28efd3341b2e5e0535b41dd64d73cf9f7d04ba9471af951023d5db2192b.png" src="_images/ff7ad28efd3341b2e5e0535b41dd64d73cf9f7d04ba9471af951023d5db2192b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">voting_models</span><span class="p">[</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3973c8256ad6264004853cae215697a28c016094ca34646be27af1def1230ebb.png" src="_images/3973c8256ad6264004853cae215697a28c016094ca34646be27af1def1230ebb.png" />
+<img alt="_images/7a2187e39aee1c1c90751f3bcb75a1624c5c6be81a1b936eeeebc367554a1493.png" src="_images/7a2187e39aee1c1c90751f3bcb75a1624c5c6be81a1b936eeeebc367554a1493.png" />
+</div>
+</div>
+<p>Como es tendencia, ambos modelos son capaces de clasificar mejor las observaciones positivas, en este caso con una mayor diferencia que los anteriores modelos, a coste de encontrar correctamente las observaciones negativas.</p>
+</section>
+<section id="stacking">
+<h2>Stacking<a class="headerlink" href="#stacking" title="Link to this heading">#</a></h2>
+<p><em>Stacking</em> es un método de ensamblaje similar a los modelos de votación, en el sentido que entrena diferentes modelos en simultáneo, con la diferencia que los resultados de estos modelos son usados posteriormente para entrenar un nuevo modelo, que puede tomar con input además los datos originales del problema. Por otro lado, el modelo final puede ser cualquier clasificador, por lo que se incluirá dentro de la búsqueda por hiperparámetros todos los modelos básicos vistos previamente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../Improved/Stacking/stacking_list.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">stacking_model_filenames</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+<span class="n">stacking_models</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">model_name</span> <span class="ow">in</span> <span class="n">stacking_model_filenames</span><span class="p">:</span>
+    <span class="n">model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;../../Improved/Stacking&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s1">.pkl&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting to load model from: </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_path</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">model_file</span><span class="p">:</span>
+                <span class="n">model</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">model_file</span><span class="p">)</span>
+                <span class="n">stacking_models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully loaded model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">UnpicklingError</span><span class="p">,</span> <span class="ne">EOFError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempting to load model from: ../../Improved/Stacking\Stacking Base.pkl
+Successfully loaded model: Stacking Base
+Attempting to load model from: ../../Improved/Stacking\Stacking Balanced.pkl
+Successfully loaded model: Stacking Balanced
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">est</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span> <span class="s1">&#39;knn&#39;</span><span class="p">,</span> 
+        <span class="n">Pipeline</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">(</span> <span class="s1">&#39;scaling&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()</span> <span class="p">),</span>
+                <span class="p">(</span> <span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)</span> <span class="p">),</span>
+                <span class="p">(</span> <span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span> <span class="p">)</span>
+            <span class="p">]</span>
+        <span class="p">)</span> 
+    <span class="p">),</span>
+    <span class="p">(</span> <span class="s1">&#39;dt&#39;</span><span class="p">,</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">8</span> <span class="p">)</span> <span class="p">),</span>
+    <span class="p">(</span> <span class="s1">&#39;lr&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;saga&#39;</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span> <span class="p">)</span> <span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">final_est</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">LogisticRegression</span><span class="p">(</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span> <span class="p">),</span>
+    <span class="n">DecisionTreeClassifier</span><span class="p">(</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">8</span> <span class="p">),</span>
+    <span class="n">KNeighborsClassifier</span><span class="p">(</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">10</span> <span class="p">),</span>
+    <span class="n">BernoulliNB</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="n">stck</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Stacking&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">StackingClassifier</span><span class="p">(</span> <span class="n">estimators</span><span class="o">=</span><span class="n">est</span> <span class="p">),</span>
+    <span class="s1">&#39;search_spaces&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;knn__classifier__n_neighbors&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">65</span> <span class="p">),</span>
+        <span class="s1">&#39;knn__classifier__weights&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span> <span class="p">]</span> <span class="p">),</span>
+        <span class="s1">&#39;dt__criterion&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span> <span class="p">]</span> <span class="p">),</span>
+        <span class="s1">&#39;lr__C&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span> <span class="p">),</span>
+        <span class="s1">&#39;final_estimator&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">(</span><span class="n">final_est</span><span class="p">),</span>
+        <span class="s1">&#39;passthrough&#39;</span><span class="p">:</span>  <span class="n">Categorical</span><span class="p">(</span> <span class="p">[</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span> <span class="p">]</span> <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>El parámetro <code class="docutils literal notranslate"><span class="pre">passthrough=True</span></code> indica la inclusión de los datos originales junto con los resultados de las clasificaciones. A continuación se pueden ver los resultados de la búsqueda. A su vez, los parámetros se centran en los resultados previos de las otras hiperparametrizaciones.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="p">{</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="n">stacking_model_filenames</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="p">}</span> <span class="o">|</span> 
+        <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">|</span> 
+        <span class="p">{</span> <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s1">&#39;Tiempo de CPU&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span> <span class="p">}</span> 
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stacking_models</span><span class="p">)</span> 
+
+<span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">parameters</span> <span class="p">)</span>
+<span class="n">parameters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombre</th>
+      <th>dt__criterion</th>
+      <th>final_estimator</th>
+      <th>knn__classifier__n_neighbors</th>
+      <th>knn__classifier__weights</th>
+      <th>lr__C</th>
+      <th>passthrough</th>
+      <th>AUC</th>
+      <th>Tiempo de CPU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Stacking Base</td>
+      <td>gini</td>
+      <td>DecisionTreeClassifier(max_depth=8)</td>
+      <td>35</td>
+      <td>distance</td>
+      <td>0.005000</td>
+      <td>True</td>
+      <td>0.762499</td>
+      <td>21771.173154</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Stacking Balanced</td>
+      <td>gini</td>
+      <td>LogisticRegression()</td>
+      <td>35</td>
+      <td>distance</td>
+      <td>169.695782</td>
+      <td>False</td>
+      <td>0.773738</td>
+      <td>8230.958139</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos evidenciar que ambos modelos tuvieron un mejor desempeño al establecer el mínimo posible de vecinos, mientras que tuvieron diferencias entre el término de regulación <span class="math notranslate nohighlight">\(C\)</span>. Otro cambio notorio es el estimador final; en el caso del modelo con datos balanceados, optó por una regresión logística sin la inclusión de los datos originales, por otro lado, el modelo con los datos originales usó un árbol de desición con la inclusión de la base de datos, por lo que es esperable la diferencia entre ambos puntajes. La diferencia de tiempo se puede deber a que los datos base tienen más datos, o bien al entrenamiento del modelo adicional con los datos originales.</p>
+<p>A continuación se pueden ver los gráficos de curvas ROC y matrices de confusión:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">stacking_models</span><span class="p">[</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/036e43f361ed213b948f9fddacbbe72e02a4e039bac475a3eb732131ef459e1a.png" src="_images/036e43f361ed213b948f9fddacbbe72e02a4e039bac475a3eb732131ef459e1a.png" />
+<img alt="_images/52ac9e2830f97c64dd3858518a5b682ca950b563f334537e5b2e9dd16be07d20.png" src="_images/52ac9e2830f97c64dd3858518a5b682ca950b563f334537e5b2e9dd16be07d20.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">stacking_models</span><span class="p">[</span> <span class="n">idx</span> <span class="p">][</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span>
+    <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ac7e0ad8426ae29cc97e16d0b071f473dda3ddf09fe5a2b7907e2fb5e1e05fd7.png" src="_images/ac7e0ad8426ae29cc97e16d0b071f473dda3ddf09fe5a2b7907e2fb5e1e05fd7.png" />
+<img alt="_images/72c3ab332776db8700f45fdc21b88f9e34d5e685c8e2b9bde3c4a874d1863aa1.png" src="_images/72c3ab332776db8700f45fdc21b88f9e34d5e685c8e2b9bde3c4a874d1863aa1.png" />
+</div>
+</div>
+<p>Es evidente que se repiten los resultados mencionados previamente, siendo capaz de clasificar mejor las observaciones positivas que las negativas.</p>
+</section>
+<section id="comparacion-de-modelos">
+<h2>Comparacion de modelos<a class="headerlink" href="#comparacion-de-modelos" title="Link to this heading">#</a></h2>
+<p>Teniendo todo esto en cuenta, podemos ver la comparación de todos los modelos mencionados en el capítulo, junto con los mejore modelos del capítulo pasado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dados problemas del kernel y las versiones de las librerías usadas, se guardaron ciertos resultados de los modelos.</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;failsafe.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">backup_predictions</span><span class="p">,</span> <span class="n">backup_df_results</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">selected_models</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span> <span class="mi">4</span><span class="p">:</span><span class="mi">8</span> <span class="p">]</span> <span class="o">+</span> <span class="n">bagging_models</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">model_info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">selected_models</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; Balanced&#39;</span> <span class="k">if</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39; Base&#39;</span><span class="p">)</span>
+    <span class="n">cpu_time</span> <span class="o">=</span> <span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;cpu_time&#39;</span><span class="p">]</span>
+    
+    <span class="n">evaluation</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="n">evaluation</span><span class="p">[</span><span class="s1">&#39;CPU Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpu_time</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluation</span><span class="p">)</span>
+
+<span class="n">df_results</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="n">df_results</span> <span class="o">=</span> <span class="n">concat</span><span class="p">(</span> <span class="p">[</span> <span class="n">df_results</span><span class="p">,</span> <span class="n">backup_df_results</span> <span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="n">df_results</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_results</span><span class="p">)</span> <span class="p">)</span> <span class="p">]</span>
+<span class="n">df_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+      <th>Name</th>
+      <th>CPU Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.860359</td>
+      <td>0.754021</td>
+      <td>0.803688</td>
+      <td>0.739825</td>
+      <td>KNN Base</td>
+      <td>1925.500179</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.859890</td>
+      <td>0.747051</td>
+      <td>0.799509</td>
+      <td>0.735952</td>
+      <td>KNN Balanced</td>
+      <td>942.796789</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.861501</td>
+      <td>0.750122</td>
+      <td>0.801963</td>
+      <td>0.740496</td>
+      <td>KNN PCA Base</td>
+      <td>437.227390</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.864612</td>
+      <td>0.724856</td>
+      <td>0.788590</td>
+      <td>0.736895</td>
+      <td>KNN PCA Balanced</td>
+      <td>359.124776</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.812964</td>
+      <td>0.628483</td>
+      <td>0.708918</td>
+      <td>0.598366</td>
+      <td>Bayes Bagging Base</td>
+      <td>11.425794</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.812324</td>
+      <td>0.622559</td>
+      <td>0.704893</td>
+      <td>0.594927</td>
+      <td>Bayes Bagging Balanced</td>
+      <td>27.536990</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.846190</td>
+      <td>0.729835</td>
+      <td>0.783717</td>
+      <td>0.694021</td>
+      <td>Descicion Tree Bagging Base</td>
+      <td>1990.622830</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.839988</td>
+      <td>0.710493</td>
+      <td>0.769833</td>
+      <td>0.679799</td>
+      <td>Descicion Tree Bagging Balanced</td>
+      <td>3642.021130</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.861577</td>
+      <td>0.742612</td>
+      <td>0.797683</td>
+      <td>0.740347</td>
+      <td>KNN Bagging Base</td>
+      <td>445.296643</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.862165</td>
+      <td>0.754528</td>
+      <td>0.804763</td>
+      <td>0.743366</td>
+      <td>KNN Bagging Balanced</td>
+      <td>1449.879107</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.859736</td>
+      <td>0.731506</td>
+      <td>0.790454</td>
+      <td>0.734961</td>
+      <td>KNN Bagging PCA Base</td>
+      <td>195.611159</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.863109</td>
+      <td>0.739489</td>
+      <td>0.796531</td>
+      <td>0.742572</td>
+      <td>KNN Bagging PCA Balanced</td>
+      <td>786.976059</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>0.828780</td>
+      <td>0.651285</td>
+      <td>0.729390</td>
+      <td>0.636148</td>
+      <td>Logistic Bagging Base</td>
+      <td>149858.243322</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>0.828298</td>
+      <td>0.702898</td>
+      <td>0.760463</td>
+      <td>0.643272</td>
+      <td>Logistic Bagging Balanced</td>
+      <td>133984.122216</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>0.864230</td>
+      <td>0.786528</td>
+      <td>0.823550</td>
+      <td>0.748633</td>
+      <td>Voting Base</td>
+      <td>2168.541874</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>0.866725</td>
+      <td>0.782494</td>
+      <td>0.822459</td>
+      <td>0.755038</td>
+      <td>Voting Balanced</td>
+      <td>1964.780990</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>0.866443</td>
+      <td>0.794275</td>
+      <td>0.828791</td>
+      <td>0.761329</td>
+      <td>Stacking Base</td>
+      <td>21771.173154</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>0.870838</td>
+      <td>0.753886</td>
+      <td>0.808153</td>
+      <td>0.756762</td>
+      <td>Stacking Balanced</td>
+      <td>8230.958139</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos ver a continuación el mejor modelo entre todos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_auc_index</span> <span class="o">=</span> <span class="n">df_results</span><span class="p">[</span><span class="s1">&#39;AUC&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+<span class="n">row_with_max_auc</span> <span class="o">=</span> <span class="n">df_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">max_auc_index</span><span class="p">]</span>
+<span class="n">DataFrame</span><span class="p">(</span><span class="n">row_with_max_auc</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+      <th>Name</th>
+      <th>CPU Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>16</th>
+      <td>0.866443</td>
+      <td>0.794275</td>
+      <td>0.828791</td>
+      <td>0.761329</td>
+      <td>Stacking Base</td>
+      <td>21771.173154</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>A pesar del alto tiempo de entrenamiento, podemos ver que obtuvo resultados decentes, tanto para la precisión, como para el recall, por lo que es bueno clasificando observaciones para ambas categorías. Por otro lado, es uno de los modelos que más tiempo tomó para su entrenamiento. Un modelo con un rendimiento similar, pero con un tiempo de entrenamiento 3 veces menor, es su versión entrenada con los datos balanceados, que únicamente pierde 0.05 puntos en el AUC, a costa de aumentar la diferencia entre la precisión y el recall. Finalmente, se escoje como modelo para el problema el modelo de stacking con los datos origales, dado que es el que mayor puntaje tiene, además de tener un buen balance entre precisión y recall.</p>
+<p>Finalmente podemos ver las predicciones de cada modelo en esta gráfica:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_model_names</span> <span class="o">=</span> <span class="n">model_filenames</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span> <span class="o">+</span> <span class="n">bagging_model_filenames</span> 
+<span class="n">plot_predictions</span><span class="p">(</span> <span class="p">[</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">selected_models</span> <span class="p">],</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">selected_model_names</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">backup_df_results</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]),</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="n">backup</span><span class="o">=</span><span class="n">backup_predictions</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3789fafaa9df4e1c6d7125daf1e9ff5f471040a8b5e04994fd31763ff9bccbbd.png" src="_images/3789fafaa9df4e1c6d7125daf1e9ff5f471040a8b5e04994fd31763ff9bccbbd.png" />
+</div>
+</div>
+<p>Es evidente cómo, para la mayoría de modelos, son capaces de predecir correctamente las observaciones positivas más claramente que las negativas.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="basic.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modelos base</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenidos">Contenidos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging">Bagging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors"><span class="math notranslate nohighlight">\(k\)</span> Nearest Neighbors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-bayesiana">Clasificación bayesiana</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-desicion">Árboles de desición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica">Regresión logística</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#voting">Voting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stacking">Stacking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-de-modelos">Comparacion de modelos</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ricardo Enrique Watts Pérez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
