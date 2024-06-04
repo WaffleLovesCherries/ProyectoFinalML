@@ -4,7 +4,5 @@ chapters:
 - file: eda
 - file: preprocessing
 - file: basic
-#- file: ensemble_training
-#- file: ensemble_results
-#- file: selection
+- file: ensemble
 
